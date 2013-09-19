@@ -1,0 +1,17 @@
+h1 Tickets
+table
+  tr
+    th ID
+    th Date
+    th Type
+    th Amount Wagered
+    th Amount To Win
+    th Outcome
+  - @tickets.each do |ticket|
+    tr
+      th #{ticket.sb_bet_id}
+      th #{ticket.wager_date}
+      th #{ticket.type}
+      th #{ticket.amount_wagered}
+      th #{ticket.amount_to_win}
+      th #{ticket.outcome}
