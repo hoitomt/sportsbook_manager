@@ -35,22 +35,3 @@
           .col-md-10.col-md-offset-1
             == slim :'tickets/ticket_line_items', locals: {ticket_line_items: ticket.ticket_line_items}
 
-  .row
-    table.tickets
-      tr
-        th ID
-        th Date
-        th Type
-        th Amount Wagered
-        th Amount To Win
-        th Outcome
-      - @tickets.each do |ticket|
-        tr
-          td=ticket.sb_bet_id
-          td=ticket.display_date
-          td=ticket.type
-          td=ticket.amount_wagered
-          td=ticket.amount_to_win
-          td=ticket.outcome
-        == slim :'tickets/ticket_line_items', locals: {ticket_line_items: ticket.ticket_line_items}
-
