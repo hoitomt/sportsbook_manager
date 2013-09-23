@@ -2,5 +2,19 @@ doctype html
 html lang="en"
   head
     title Sports Manager
+    link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.css"
+    link rel="stylesheet" href="css/style.css"
+
   body
-    == yield
+    navbar.navbar-inverse.navbar-fixed-top role="navigation"
+      .container
+        .collapse.navbar-collapse
+          ul.nav.navbar-nav
+            li.active
+              a href="#"
+                span.glyphicon.glyphicon-home  Home
+    .container.home-top-margin
+      == yield
+
+    script src="vendor/jquery/jquery-1.10.2.min.js"
+    script src="vendor/bootstrap/js/bootstrap.js"

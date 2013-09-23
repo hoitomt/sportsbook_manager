@@ -64,3 +64,4 @@ DEPENDENCIES
   sinatra (~> 1.4.3)
   slim
   sportsbook_api!
+  virtus
