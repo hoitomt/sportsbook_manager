@@ -1,5 +1,5 @@
 require 'sinatra'
-require './lib/sportsbook_api/lib/sportsbook_api'
+require './lib/sportsbook_api/sportsbook_api'
 require 'slim'
 require 'yaml'
 
