@@ -29,10 +29,8 @@ module SportsbookApi
 		end
 
 		def login
-			p "API SB URL #{URL}"
 			mechanize_agent.get(URL) do |page|
-				login_result = page.form_with(:name => 'sportsbook') do |login|
-					p "Login #{login}"
+				login_result = page.form_with(:name => 'loginform') do |login|
 					login.username = @config.username
 					login.password = @config.password
 				end.click_button
