@@ -2,12 +2,6 @@ class Tickets
 
   class << self
 
-    def all_tickets
-      MongoDao.all.each_with_object([]) do |ticket_data, a|
-        a << Ticket.new(ticket_data)
-      end
-    end
-
     def save_tickets(tickets)
       tickets.each do |ticket|
         persist_ticket(ticket)

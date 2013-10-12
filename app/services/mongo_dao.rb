@@ -2,57 +2,66 @@ class MongoDao
   CLIENT = Sinatra::Application.settings.mongo_client
   DB_NAME = 'mydb' #Sinatra::Application.settings.mongo_database_name
 
-  class << self
-    def all
-      collection.find.to_a
-    end
+  def initialize(collection_name)
+    @collection_name = collection_name
+  end
 
-    def add_or_update(query, doc)
-      save(doc) unless update(query, doc)
-    end
+  def all(args)
+    @args = args
+    collection.find.send(:sort, sort_args).to_a
+  end
 
-    def save(doc=nil)
-      collection.insert(doc) if doc
-    end
+  def sort_args
+    p "Args #{@args}"
+    @args[:sort]
+  end
 
-    def update(query, doc)
-      update = collection.update(query, doc)
-      update['updatedExisting']
-    end
+  def add_or_update(query, doc)
+    save(doc) unless update(query, doc)
+  end
 
-    def id(query)
-      find_one(query)['_id']
-    end
+  def save(doc=nil)
+    collection.insert(doc) if doc
+  end
 
-    def find(query)
-      collection.find(query).to_a
-    end
+  def update(query, doc)
+    update = collection.update(query, doc)
+    update['updatedExisting']
+  end
 
-    def find_one(query)
-      find(query).first || {}
-    end
+  def id(query)
+    find_one(query)['_id']
+  end
 
-    def present?(query)
-      !blank?(query)
-    end
+  def find(query)
+    collection.find(query).to_a
+  end
 
-    def blank?(query)
-      find_one(query).empty?
-    end
+  def find_one(query)
+    p "Query #{query}"
+    find(query).first || {}
+  end
 
-    private
+  def present?(query)
+    !blank?(query)
+  end
 
-    def collection
-      db[collection_name]
-    end
+  def blank?(query)
+    find_one(query).empty?
+  end
 
-    def db
-      CLIENT.db(DB_NAME)
-    end
+  private
 
-    def collection_name
-      "testData"
-    end
+  def collection
+    db[collection_name]
+  end
+
+  def db
+    CLIENT.db(DB_NAME)
+  end
+
+  def collection_name
+    @collection_name
   end
 
 end

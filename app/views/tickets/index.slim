@@ -1,37 +1,36 @@
 .page-header
   h1 History
-= @test_data
 - unless @tickets.nil?
-  .row
-    .col-md-10
-      .col-md-1
-        .results-heading ID
-      .col-md-1
-        .results-heading Date
-      .col-md-2
-        .results-heading Type
-      .col-md-2
-        .results-heading Wagered
-      .col-md-2
-        .results-heading To Win
-      .col-md-2
-        .results-heading Outcome
-  .row
+  .results
+    .row.heading
+      .col-md-12
+        .col-md-1
+          .results-heading Date
+        .col-md-3
+          .results-heading Type
+        .col-md-1
+          .results-heading Wagered
+        .col-md-1
+          .results-heading To Win
+        .col-md-1
+          .results-heading Outcome
+        .col-md-2
+          .results-heading ID
     - @tickets.each do |ticket|
-      .col-md-10
-        .col-md-1
-          .result==ticket.sb_bet_id
-        .col-md-1
-          .result==ticket.display_date
-        .col-md-2
-          .result==ticket.type
-        .col-md-2
-          .result==ticket.amount_wagered
-        .col-md-2
-          .result==ticket.amount_to_win
-        .col-md-2
-          .result==ticket.outcome
-        .row
-          .col-md-10.col-md-offset-1
-            == slim :'tickets/ticket_line_items', locals: {ticket_line_items: ticket.ticket_line_items}
+      .row.tickets
+        .col-md-12
+          .col-md-1
+            .result==ticket.display_date
+          .col-md-3
+            .result==ticket.type
+          .col-md-1
+            .result==currency(ticket.amount_wagered)
+          .col-md-1
+            .result==currency(ticket.amount_to_win)
+          .col-md-1
+            .result==ticket.outcome
+          .col-md-2
+            .result==ticket.sb_bet_id
+        .row.detail.col-md-6.col-md-offset-1
+          == slim :'tickets/ticket_line_items', locals: {ticket_line_items: ticket.ticket_line_items}
 

@@ -1,14 +1,11 @@
 - if ticket_line_items
-  tr
-    td colspan="6"
-      table.line-items
-        - ticket_line_items.each do |line_item|
-          tr
-            td=line_item.date_display
-            td=line_item.line_item_spread
-          tr
-            td=line_item.away_team
-            td=line_item.away_score
-          tr
-            td=line_item.home_team
-            td=line_item.home_score
+  - ticket_line_items.each do |line_item|
+    .row.heading
+      .col-md-8.date
+        '#{line_item.date_display} - #{line_item.line_item_spread}
+    .row
+      .col-md-4.team=line_item.away_team
+      .col-md-4.score=line_item.away_score
+    .row
+      .col-md-4.team=line_item.home_team
+      .col-md-4.score=line_item.home_score

@@ -1,0 +1,31 @@
+.home-top-margin {
+  margin-top: 50px;
+}
+.results {
+  .heading {
+    font-weight: bold;
+    font-size: 18px;
+  }
+  .tickets {
+    &:nth-child(even) {
+      background-color: #00CC99;
+    }
+    &:nth-child(odd) {
+      background-color: #00FF99;
+    }
+    .result {
+      font-weight: bold;
+    }
+    .detail {
+      font-size: 11px;
+      // background-color: #fff;
+      .heading {
+        font-size: inherit;
+        font-weight: bold;
+      }
+      .team {
+        text-align: right;
+      }
+    }
+  }
+}

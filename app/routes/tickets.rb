@@ -1,5 +1,5 @@
 get '/tickets/?' do
-  @tickets = Tickets.all_tickets
+  @tickets = Ticket.all
   slim :'tickets/index', layout: :'layouts/application'
 end
 
