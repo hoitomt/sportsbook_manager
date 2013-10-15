@@ -15,6 +15,11 @@ module TestHelper
     polish doc
   end
 
+  def sportsbook_watir
+    doc = File.read(File.expand_path(File.dirname(__FILE__) + '/fixtures/watir_fixture.html'))
+    polish doc
+  end
+
   def polish(doc)
     doc.gsub!(/\\r|\\t|\\n|\\/, '')
     doc.gsub!(/\s{2,}/, ' ')

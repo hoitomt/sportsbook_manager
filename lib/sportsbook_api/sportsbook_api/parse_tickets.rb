@@ -4,7 +4,6 @@ module SportsbookApi
 	class ParseTickets
 
 		def initialize(doc)
-			# p "Document #{doc}"
 			@document = doc
 		end
 
@@ -17,7 +16,7 @@ module SportsbookApi
 		end
 
 		def result_tables
-			result_tables = @document.css('div#wagerDetails > table > tr > td > div > table')
+			result_tables = @document.css('div#wagerDetails > table > tbody > tr > td > div > table')
 			result_tables ||= []
 		end
 
@@ -87,7 +86,7 @@ module SportsbookApi
 		end
 
 		def ticket_rows(table)
-			ticket_row = table.css('> tr')
+			ticket_row = table.css('> tbody > tr')
 			ticket_row ||= []
 		end
 
@@ -96,7 +95,7 @@ module SportsbookApi
 		end
 
 		def wager_details_rows(table)
-			ticket_rows(table)[1].css('> td > table > tr')
+			ticket_rows(table)[1].css('> td > table > tbody > tr')
 		end
 
 		def wager_amounts(table)

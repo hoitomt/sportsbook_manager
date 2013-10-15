@@ -1,0 +1,2219 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+ <html xmlns="http://www.w3.org/1999/xhtml"><head><script type="text/javascript" src="//ct1.addthis.com/static/r07/auth015.js"></script><link rel="stylesheet" type="text/css" href="//ct1.addthis.com/static/r07/widget116.css" media="all" />
+     <link type="text/css" rel="stylesheet" href="https://cam.gamingsystem.ag/static/common/7000/common.css" />
+     <script type="text/javascript"> var addthis_config = { data_track_clickback : true, username: "sportsbookdotcom" }; var addthis_share = { templates: { twitter: '{{title}} {{url}}' } }; </script>
+     <script src="/ctr/acctmgt/nav/fxnid?fxnId=FXN_MYACTIVITIES_SBKHISTORY" type="text/javascript"></script> <script type="text/javascript"> var fxnId = "FXN_MYACTIVITIES_SBKHISTORY"; </script>
+     <title>Processed Wagers</title>
+     <link type="text/css" href="https://cdn.sportsbook.ag/static/SBK/7000/sbk5_1.css" rel="stylesheet" />
+     <script src="/sbk/sportsbook4/script/jquery.js" type="text/javascript"></script>
+     <link rel="Stylesheet" href="https://cdn.sportsbook.ag/static/SBK/7000/jquery-ui-1.8.13.custom.css" type="text/css" />
+     <script src="/sbk/sportsbook4/script/jquery-ui-1.8.13.custom.min.js" type="text/javascript"></script>
+     <script src="https://cdn.sportsbook.ag/static/SBK/7000/tabs5_v3.js" type="text/javascript"></script>
+     <script language="javascript">function getInternetExplorerVersion() {
+     var rv = -1; // Return value assumes failure.
+     if (navigator.appName == 'Microsoft Internet Explorer') {
+         var ua = navigator.userAgent;
+         var re = new RegExp("MSIE ([0-9]{1,}[\.0-9]{0,})");
+         if (re.exec(ua) != null) rv = parseFloat(RegExp.$1);
+     }
+     return rv;
+ }
+ function islaterTanIE8() {
+     var ver = getInternetExplorerVersion();
+     if (ver &gt; -1) {
+         if (ver &gt;= 8.0) return true;
+         else return false;
+     }
+ }
+ var stickyBetTicketEnabled = true;
+ if ((navigator.appName == 'Microsoft Internet Explorer') &amp;&amp; !islaterTanIE8()) {
+     stickyBetTicketEnabled = false;
+ }
+ var defaultSize = 2100;
+ var parentDomainForPost = 'http://www.sportsbook.ag';
+ var parentDomainForReceive = 'http://www.sportsbook.ag';</script>
+     <script src="/sbk/sportsbook4/script/wagerhistory.js" type="text/javascript"></script>
+     <script type="text/javascript">
+       function goToPage(page) {
+         document.pagerReload.page.value = page;
+         document.pagerReload.submit();
+         return false;
+       }
+     </script>
+   </head>
+
+ <body onload="iframeType();">
+ <div id="pageContainer">
+ <div align="center">
+ <div id="headerBlock"> <div id="pageTitle">Recent Transactions - Sportsbook Wagering History</div> <div style="display: #2#" id="chatButton"> <a alt="PendingProcessedWagers" href="https://server.lon.liveperson.net/hc/66702201/?cmd=file&amp;file=visitorWantsToChat&amp;site=66702201&amp;byhref=1&amp;SESSIONVAR%21skill=PendingProcessedWagers" target="chat66702201" onclick="javascript:window.open('https://server.lon.liveperson.net/hc/66702201/?cmd=file&amp;file=visitorWantsToChat&amp;site=66702201&amp;SESSIONVAR!skill=PendingProcessedWagers&amp;referrer='+escape(document.location),'chat66702201','width=472,height=320');return false;"><img src="https://cam.gamingsystem.ag/static/teller/7000/btn_livechat_up.gif" /></a> </div> </div>
+   <div style="height:90px" id="searchCriteriaId" class="searchCriteria">
+   <form id="wagerHistory" action="wagers.cgi" name="getBets">
+
+     <div id="betStateBox" class="betState">
+       <label class="pendingLabel">
+       <span class="pendingSpan">Search for:</span>
+       <select onchange="checkPending();" id="selBetState" name="betState">
+         <option selected="selected" value="0">Pending and Processed</option>
+         <option value="1">Pending</option>
+         <option value="2">Processed</option>
+         <option value="4">Unaccepted Live Betting</option>
+       </select>
+       </label>
+     </div>
+
+     <div class="radioButton">
+       <div><input type="radio" value="1" name="searchByDateType" class="inputRadioButton" />By Bet Date</div>
+       <div><input type="radio" checked="checked" value="2" name="searchByDateType" class="inputRadioButton" />By Event Date</div>
+     </div>
+
+
+
+
+       <div id="searchBtnDiv1" class="searchBtnDiv"><input type="submit" class="submitBtn" name="searchButton" value="Search" /></div>
+
+     <div class="dateRange">
+       <label class="pendingLabel">Date Range:
+       <select onchange="checkCustomize();" id="priorDaysId" name="dateRangeMode">
+
+           <option value="THIS_MONTH"> This month</option>
+
+           <option value="LAST_DAY"> Last day</option>
+
+           <option value="LAST_3_DAYS"> Last 3 days</option>
+
+           <option value="LAST_WEEK"> Last week</option>
+
+           <option selected="selected" value="LAST_31_DAYS"> Last 31 days</option>
+
+           <option value="PREVIOUS_MONTH"> September 2013</option>
+
+           <option value="PREVIOUS_MONTH_2"> August 2013</option>
+
+           <option value="PREVIOUS_MONTH_3"> July 2013</option>
+
+           <option value="PREVIOUS_MONTH_4"> June 2013</option>
+
+           <option value="PREVIOUS_MONTH_5"> May 2013</option>
+
+           <option value="PREVIOUS_MONTH_6"> April 2013</option>
+
+           <option value="CUSTOM"> Custom</option>
+
+       </select>
+       </label>
+     </div>
+
+
+
+       <div class="customizeBox" id="customizeBoxDiv">
+
+
+         <div id="displayRangeId" class="displayRange">
+           <label class="pendingLabel">
+               <span class="pendingSpan">Display:</span>
+             <select name="customDateRangeDays">
+
+                 <option selected="selected" value="7">7</option>
+
+                 <option value="1">1</option>
+
+                 <option value="3">3</option>
+
+                 <option value="10">10</option>
+
+                 <option value="20">20</option>
+
+                 <option value="30">30</option>
+
+             </select>
+             <label class="pendingLabe2">days</label>
+            </label>
+          </div>
+
+          <div class="customizedRadioBtn">
+            <div><input type="radio" checked="checked" value="1" class="dateRadio" name="customDateRangeDirection" />Starting</div>
+            <div><input type="radio" value="2" class="dateRadio" name="customDateRangeDirection" />Ending</div>
+          </div>
+
+          <div class="dateText">
+           <input type="text" value="10/11/2013" id="baseDateId" name="customDateRangeDate" class="inputDate hasDatepicker" style="color: rgb(0, 0, 0);" />
+           <img src="https://cdn.sportsbook.ag/static/SBK/7000/cal.gif" onclick="document.getElementById('baseDateId').focus();" />
+          </div>
+
+          <div style="padding-left:10px;" id="searchBtnDiv2" class="searchBtnDiv">
+           <input type="submit" onclick="return checkdate(document.getElementById('baseDateId'));" class="submitBtn" name="searchButton" value="Search" />
+          </div>
+       </div>
+
+   </form>
+ </div>
+ <div align="center" style="clear:both;" id="wagerDetails">
+ <table cellspacing="0" cellpadding="0" border="0" id="pendingTable">
+   <tbody><tr>
+     <td>
+       <form id="pagerReload" name="pagerReload" action="wagers.cgi" method="get">
+         <input type="hidden" value="2" name="searchByDateType" />
+         <input type="hidden" value="LAST_31_DAYS" name="dateRangeMode" />
+         <input type="hidden" value="10/11/2013" name="customDateRangeDate" />
+         <input type="hidden" value="7" name="customDateRangeDays" />
+         <input type="hidden" value="1" name="customDateRangeDirection" />
+         <input type="hidden" value="" name="dateRangeSelection" />
+         <input type="hidden" value="0" name="betState" />
+         <input type="hidden" value="" name="priorDays" />
+         <input type="hidden" value="" name="startDate" />
+         <input type="hidden" value="" name="endDate" />
+         <input type="hidden" value="0" name="page" />
+
+         <table cellspacing="0" cellpadding="0" border="0" id="pagination">
+           <tbody><tr>
+             <td align="left" class="left">
+               <a onclick="document.pagerReload.submit(); return false;" onmouseout="refresh.src='images/refresh_up.gif'" onmouseover="refresh.src='images/refresh_over.gif'" href="">
+                    <img border="0" name="refresh" src="images/refresh_up.gif" />
+               </a>
+             </td>
+             <td align="left" class="left">
+               <a onmouseout="printImg.src='images/print_up.gif'" onmouseover="printImg.src='images/print_over.gif'" onclick="window.print(); return false;" class="left" href="">
+                 <img border="0" name="printImg" src="images/print_up.gif" />
+               </a>
+             </td>
+
+                                                 <!-- TOP PAGINATION -->
+                                                 <td valign="middle" align="right" class="topColorBG">
+                                                     <table cellspacing="0" cellpadding="3" border="0" align="right">
+                                                             <tbody><tr valign="middle">
+                                                                     <td valign="middle" align="left" class="topColorBG">
+
+                                                                     </td>
+                                                                     <td width="31" valign="middle" class="topColorBG">PAGE</td>
+                                                                     <td valign="middle" class="topColorBG">
+
+                                                                     <span class="currentPage">1</span>
+
+
+
+                                                                     <a onclick="goToPage(1); return false;" href="" class="pagenum">2</a>
+
+                                                                     </td>
+                                                                     <td valign="middle" align="right" class="topColorBG">
+
+                                                                             <a onclick="goToPage(1); return false;" onmouseout="nextImg.src='images/next_up.gif'" onmouseover="nextImg.src='images/next_over.gif'" href="">
+                                                                                <img height="15" width="45" border="0" name="nextImg" src="images/next_up.gif" />
+                                                                             </a>
+
+                                                                     </td>
+                                                             </tr>
+                                                     </tbody></table>
+                                                 </td>
+                                                 <!--  TOP PAGINATION -->
+           </tr>
+         </tbody></table>
+       </form>
+
+       <div align="center">
+         <table cellspacing="0" cellpadding="2" border="0" id="processedLost">
+           <tbody><tr>
+             <td colspan="2" class="headerBG">
+               <span class="pendingHeader">
+                 <b>1) BET ID=421783268</b>
+               </span>
+
+             </td>
+           </tr>
+           <tr>
+             <td class="loser">
+             <table>
+               <tbody><tr>
+                 <td width="220"><span>Straight Wager</span></td>
+                 <td width="100"><span>10/06/13 12:58 ET</span></td>
+
+               </tr>
+               <tr>
+                 <td width="220">
+                   <span>bet 5.00
+                   to win 4.55
+
+                   </span>
+                 </td>
+                 <td><span class="resultTitle">Result: Wager Lost</span></td>
+               </tr>
+             </tbody></table>
+             </td>
+           </tr>
+
+           <tr>
+             <td colspan="2" class="loserAltColor">
+             <table>
+
+
+           <tbody><tr>
+             <td width="220">
+             <span>
+
+
+
+
+                 Patriots(NewEngland)  <span class="">6</span>
+                 <br />
+                   Bengals(Cincinnati)  13
+
+               </span>
+             </td>
+             <td><span>
+                 10/06/13(13:05 ET)<br />
+
+                   Patriots(NewEngland)
+
+
+
+               -2.5 (-110)
+
+               </span>
+             </td>
+           </tr>
+
+           </tbody></table>
+           </td>
+           </tr>
+
+         </tbody></table>
+       </div>
+       <br />
+
+       <div align="center">
+         <table cellspacing="0" cellpadding="2" border="0" id="processedLost">
+           <tbody><tr>
+             <td colspan="2" class="headerBG">
+               <span class="pendingHeader">
+                 <b>2) BET ID=421402961</b>
+               </span>
+
+             </td>
+           </tr>
+           <tr>
+             <td class="loser">
+             <table>
+               <tbody><tr>
+                 <td width="220"><span>Straight Wager</span></td>
+                 <td width="100"><span>10/04/13 19:52 ET</span></td>
+
+               </tr>
+               <tr>
+                 <td width="220">
+                   <span>bet 15.00
+                   to win 13.64
+
+                   </span>
+                 </td>
+                 <td><span class="resultTitle">Result: Wager Lost</span></td>
+               </tr>
+             </tbody></table>
+             </td>
+           </tr>
+
+           <tr>
+             <td colspan="2" class="loserAltColor">
+             <table>
+
+
+           <tbody><tr>
+             <td width="220">
+             <span>
+
+
+
+
+                 WashingtonU  <span class="">28</span>
+                 <br />
+                   Stanford  31
+
+               </span>
+             </td>
+             <td><span>
+                 10/05/13(22:40 ET)<br />
+
+
+                   Stanford
+
+
+               -9 (-110)
+
+               </span>
+             </td>
+           </tr>
+
+           </tbody></table>
+           </td>
+           </tr>
+
+         </tbody></table>
+       </div>
+       <br />
+
+       <div align="center">
+         <table cellspacing="0" cellpadding="2" border="0" id="processedWon">
+           <tbody><tr>
+             <td colspan="2" class="headerBG">
+               <span class="pendingHeader">
+                 <b>3) BET ID=421402416</b>
+               </span>
+
+             </td>
+           </tr>
+           <tr>
+             <td class="winner">
+             <table>
+               <tbody><tr>
+                 <td width="220"><span>Straight Wager</span></td>
+                 <td width="100"><span>10/04/13 19:48 ET</span></td>
+
+                                                                     <td><div class="addthis_toolbox addthis_default_style"><a addthis:title="I just won $18.70 from a $10.00 Straight Wager at Sportsbook, the place where Everybody Bets!" addthis:url="http://www.sportsbook.ag" class="addthis_button_twitter at300b" href="http://www.addthis.com/bookmark.php?v=250" title="Tweet"><span class="at16nc at300bs at15nc at15t_twitter at16t_twitter"><span class="at_a11y">Share on twitter</span></span></a><a addthis:url="http://www.sportsbook.ag/livesports/facebookshare.php?title=I+just+won+%2418.70+from+a+%2410.00+Straight+Wager+at+Sportsbook&amp;description=The+place+where+Everybody+Bets%21&amp;url=http%3A%2F%2Fwww.sportsbook.ag&amp;siteName=www.sportsbook.ag&amp;imageUrl=http%3A%2F%2Fwww.sportsbook.ag%2Fsites%2Fdrupal.sportsbook%2Ffiles%2Fsb_logo_fb.gif" class="addthis_button_facebook at300b" href="http://www.addthis.com/bookmark.php?v=250" title="Facebook"><span class="at16nc at300bs at15nc at15t_facebook at16t_facebook"><span class="at_a11y">Share on facebook</span></span></a><div class="atclear"></div></div></td>
+
+               </tr>
+               <tr>
+                 <td width="220">
+                   <span>bet 10.00
+                   to win 8.70
+
+
+
+                         (paid 18.70)
+
+
+                   </span>
+                 </td>
+                 <td><span class="resultTitle">Result: Wager Won</span></td>
+               </tr>
+             </tbody></table>
+             </td>
+           </tr>
+
+           <tr>
+             <td colspan="2" class="winnerAltColor">
+             <table>
+
+
+           <tbody><tr>
+             <td width="220">
+             <span>
+
+
+
+
+                 LSU  <span class="">59</span>
+                 <br />
+                   MississippiSt  26
+
+               </span>
+             </td>
+             <td><span>
+                 10/05/13(19:10 ET)<br />
+
+                   LSU
+
+
+
+               -10 (-115)
+
+               </span>
+             </td>
+           </tr>
+
+           </tbody></table>
+           </td>
+           </tr>
+
+         </tbody></table>
+       </div>
+       <br />
+
+       <div align="center">
+         <table cellspacing="0" cellpadding="2" border="0" id="processedLost">
+           <tbody><tr>
+             <td colspan="2" class="headerBG">
+               <span class="pendingHeader">
+                 <b>4) BET ID=421321968</b>
+               </span>
+
+             </td>
+           </tr>
+           <tr>
+             <td class="loser">
+             <table>
+               <tbody><tr>
+                 <td width="220"><span>6 Point Teaser (3 Teams)</span></td>
+                 <td width="100"><span>10/03/13 23:28 ET</span></td>
+
+               </tr>
+               <tr>
+                 <td width="220">
+                   <span>bet 20.00
+                   to win 32.00
+
+                   </span>
+                 </td>
+                 <td><span class="resultTitle">Result: Wager Lost</span></td>
+               </tr>
+             </tbody></table>
+             </td>
+           </tr>
+
+           <tr>
+             <td colspan="2" class="loserAltColor">
+             <table>
+
+
+           <tbody><tr>
+             <td width="220">
+             <span>
+
+
+
+
+                 Clemson  <span class="">49</span>
+                 <br />
+                   Syracuse  14
+
+               </span>
+             </td>
+             <td><span>
+                 10/05/13(15:40 ET)<br />
+
+                   Clemson
+
+
+
+               -8.5 (-110)
+
+               </span>
+             </td>
+           </tr>
+
+           </tbody></table>
+           </td>
+           </tr>
+
+
+           <tr>
+             <td colspan="2" class="loser">
+             <table>
+
+
+           <tbody><tr>
+             <td width="220">
+             <span>
+
+
+
+
+                 Georgia  <span class="">34</span>
+                 <br />
+                   TennesseeU  31
+
+               </span>
+             </td>
+             <td><span>
+                 10/05/13(15:35 ET)<br />
+
+                   Georgia
+
+
+
+               -5.5 (-110)
+
+               </span>
+             </td>
+           </tr>
+
+           </tbody></table>
+           </td>
+           </tr>
+
+
+           <tr>
+             <td colspan="2" class="loserAltColor">
+             <table>
+
+
+           <tbody><tr>
+             <td width="220">
+             <span>
+
+
+
+
+                 LSU  <span class="">59</span>
+                 <br />
+                   MississippiSt  26
+
+               </span>
+             </td>
+             <td><span>
+                 10/05/13(19:10 ET)<br />
+
+                   LSU
+
+
+
+               -4 (-115)
+
+               </span>
+             </td>
+           </tr>
+
+           </tbody></table>
+           </td>
+           </tr>
+
+         </tbody></table>
+       </div>
+       <br />
+
+       <div align="center">
+         <table cellspacing="0" cellpadding="2" border="0" id="processedLost">
+           <tbody><tr>
+             <td colspan="2" class="headerBG">
+               <span class="pendingHeader">
+                 <b>5) BET ID=421321967</b>
+               </span>
+
+             </td>
+           </tr>
+           <tr>
+             <td class="loser">
+             <table>
+               <tbody><tr>
+                 <td width="220"><span>Straight Wager</span></td>
+                 <td width="100"><span>10/03/13 23:28 ET</span></td>
+
+               </tr>
+               <tr>
+                 <td width="220">
+                   <span>bet 10.00
+                   to win 8.70
+
+                   </span>
+                 </td>
+                 <td><span class="resultTitle">Result: Wager Lost</span></td>
+               </tr>
+             </tbody></table>
+             </td>
+           </tr>
+
+           <tr>
+             <td colspan="2" class="loserAltColor">
+             <table>
+
+
+           <tbody><tr>
+             <td width="220">
+             <span>
+
+
+
+
+                 OhioSt  <span class="">40</span>
+                 <br />
+                   Northwestern  30
+
+               </span>
+             </td>
+             <td><span>
+                 10/05/13(20:20 ET)<br />
+
+
+                   Northwestern
+
+
+               +7.5 (-115)
+
+               </span>
+             </td>
+           </tr>
+
+           </tbody></table>
+           </td>
+           </tr>
+
+         </tbody></table>
+       </div>
+       <br />
+
+       <div align="center">
+         <table cellspacing="0" cellpadding="2" border="0" id="processedWon">
+           <tbody><tr>
+             <td colspan="2" class="headerBG">
+               <span class="pendingHeader">
+                 <b>6) BET ID=421320951</b>
+               </span>
+
+             </td>
+           </tr>
+           <tr>
+             <td class="winner">
+             <table>
+               <tbody><tr>
+                 <td width="220"><span>Straight Wager</span></td>
+                 <td width="100"><span>10/03/13 23:01 ET</span></td>
+
+                                                                     <td><div class="addthis_toolbox addthis_default_style"><a addthis:title="I just won $28.00 from a $20.00 Straight Wager at Sportsbook, the place where Everybody Bets!" addthis:url="http://www.sportsbook.ag" class="addthis_button_twitter at300b" href="http://www.addthis.com/bookmark.php?v=250" title="Tweet"><span class="at16nc at300bs at15nc at15t_twitter at16t_twitter"><span class="at_a11y">Share on twitter</span></span></a><a addthis:url="http://www.sportsbook.ag/livesports/facebookshare.php?title=I+just+won+%2428.00+from+a+%2420.00+Straight+Wager+at+Sportsbook&amp;description=The+place+where+Everybody+Bets%21&amp;url=http%3A%2F%2Fwww.sportsbook.ag&amp;siteName=www.sportsbook.ag&amp;imageUrl=http%3A%2F%2Fwww.sportsbook.ag%2Fsites%2Fdrupal.sportsbook%2Ffiles%2Fsb_logo_fb.gif" class="addthis_button_facebook at300b" href="http://www.addthis.com/bookmark.php?v=250" title="Facebook"><span class="at16nc at300bs at15nc at15t_facebook at16t_facebook"><span class="at_a11y">Share on facebook</span></span></a><div class="atclear"></div></div></td>
+
+               </tr>
+               <tr>
+                 <td width="220">
+                   <span>bet 20.00
+                   to win 8.00
+
+
+
+                         (paid 28.00)
+
+
+                   </span>
+                 </td>
+                 <td><span class="resultTitle">Result: Wager Won</span></td>
+               </tr>
+             </tbody></table>
+             </td>
+           </tr>
+
+           <tr>
+             <td colspan="2" class="winnerAltColor">
+             <table>
+
+
+           <tbody><tr>
+             <td width="220">
+             <span>
+
+
+
+
+                 Texans(Houston)  <span class="">3</span>
+                 <br />
+                   49ers(SanFrancisco)  34
+
+               </span>
+             </td>
+             <td><span>
+                 10/06/13(20:35 ET)<br />
+
+
+                   49ers(SanFrancisco)
+
+
+               -250
+
+               </span>
+             </td>
+           </tr>
+
+           </tbody></table>
+           </td>
+           </tr>
+
+         </tbody></table>
+       </div>
+       <br />
+
+       <div align="center">
+         <table cellspacing="0" cellpadding="2" border="0" id="processedLost">
+           <tbody><tr>
+             <td colspan="2" class="headerBG">
+               <span class="pendingHeader">
+                 <b>7) BET ID=421320950</b>
+               </span>
+
+             </td>
+           </tr>
+           <tr>
+             <td class="loser">
+             <table>
+               <tbody><tr>
+                 <td width="220"><span>Straight Wager</span></td>
+                 <td width="100"><span>10/03/13 23:01 ET</span></td>
+
+               </tr>
+               <tr>
+                 <td width="220">
+                   <span>bet 20.00
+                   to win 13.79
+
+                   </span>
+                 </td>
+                 <td><span class="resultTitle">Result: Wager Lost</span></td>
+               </tr>
+             </tbody></table>
+             </td>
+           </tr>
+
+           <tr>
+             <td colspan="2" class="loserAltColor">
+             <table>
+
+
+           <tbody><tr>
+             <td width="220">
+             <span>
+
+
+
+
+                 Seahawks(Seattle)  <span class="">28</span>
+                 <br />
+                   Colts(Indianapolis)  34
+
+               </span>
+             </td>
+             <td><span>
+                 10/06/13(13:05 ET)<br />
+
+                   Seahawks(Seattle)
+
+
+
+               -145
+
+               </span>
+             </td>
+           </tr>
+
+           </tbody></table>
+           </td>
+           </tr>
+
+         </tbody></table>
+       </div>
+       <br />
+
+       <div align="center">
+         <table cellspacing="0" cellpadding="2" border="0" id="processedWon">
+           <tbody><tr>
+             <td colspan="2" class="headerBG">
+               <span class="pendingHeader">
+                 <b>8) BET ID=421320949</b>
+               </span>
+
+             </td>
+           </tr>
+           <tr>
+             <td class="winner">
+             <table>
+               <tbody><tr>
+                 <td width="220"><span>Straight Wager</span></td>
+                 <td width="100"><span>10/03/13 23:01 ET</span></td>
+
+                                                                     <td><div class="addthis_toolbox addthis_default_style"><a addthis:title="I just won $25.88 from a $20.00 Straight Wager at Sportsbook, the place where Everybody Bets!" addthis:url="http://www.sportsbook.ag" class="addthis_button_twitter at300b" href="http://www.addthis.com/bookmark.php?v=250" title="Tweet"><span class="at16nc at300bs at15nc at15t_twitter at16t_twitter"><span class="at_a11y">Share on twitter</span></span></a><a addthis:url="http://www.sportsbook.ag/livesports/facebookshare.php?title=I+just+won+%2425.88+from+a+%2420.00+Straight+Wager+at+Sportsbook&amp;description=The+place+where+Everybody+Bets%21&amp;url=http%3A%2F%2Fwww.sportsbook.ag&amp;siteName=www.sportsbook.ag&amp;imageUrl=http%3A%2F%2Fwww.sportsbook.ag%2Fsites%2Fdrupal.sportsbook%2Ffiles%2Fsb_logo_fb.gif" class="addthis_button_facebook at300b" href="http://www.addthis.com/bookmark.php?v=250" title="Facebook"><span class="at16nc at300bs at15nc at15t_facebook at16t_facebook"><span class="at_a11y">Share on facebook</span></span></a><div class="atclear"></div></div></td>
+
+               </tr>
+               <tr>
+                 <td width="220">
+                   <span>bet 20.00
+                   to win 5.88
+
+
+
+                         (paid 25.88)
+
+
+                   </span>
+                 </td>
+                 <td><span class="resultTitle">Result: Wager Won</span></td>
+               </tr>
+             </tbody></table>
+             </td>
+           </tr>
+
+           <tr>
+             <td colspan="2" class="winnerAltColor">
+             <table>
+
+
+           <tbody><tr>
+             <td width="220">
+             <span>
+
+
+
+
+                 Lions(Detroit)  <span class="">9</span>
+                 <br />
+                   Packers(GreenBay)  22
+
+               </span>
+             </td>
+             <td><span>
+                 10/06/13(13:05 ET)<br />
+
+
+                   Packers(GreenBay)
+
+
+               -340
+
+               </span>
+             </td>
+           </tr>
+
+           </tbody></table>
+           </td>
+           </tr>
+
+         </tbody></table>
+       </div>
+       <br />
+
+       <div align="center">
+         <table cellspacing="0" cellpadding="2" border="0" id="processedWon">
+           <tbody><tr>
+             <td colspan="2" class="headerBG">
+               <span class="pendingHeader">
+                 <b>9) BET ID=421320948</b>
+               </span>
+
+             </td>
+           </tr>
+           <tr>
+             <td class="winner">
+             <table>
+               <tbody><tr>
+                 <td width="220"><span>Straight Wager</span></td>
+                 <td width="100"><span>10/03/13 23:01 ET</span></td>
+
+                                                                     <td><div class="addthis_toolbox addthis_default_style"><a addthis:title="I just won $24.73 from a $20.02 Straight Wager at Sportsbook, the place where Everybody Bets!" addthis:url="http://www.sportsbook.ag" class="addthis_button_twitter at300b" href="http://www.addthis.com/bookmark.php?v=250" title="Tweet"><span class="at16nc at300bs at15nc at15t_twitter at16t_twitter"><span class="at_a11y">Share on twitter</span></span></a><a addthis:url="http://www.sportsbook.ag/livesports/facebookshare.php?title=I+just+won+%2424.73+from+a+%2420.02+Straight+Wager+at+Sportsbook&amp;description=The+place+where+Everybody+Bets%21&amp;url=http%3A%2F%2Fwww.sportsbook.ag&amp;siteName=www.sportsbook.ag&amp;imageUrl=http%3A%2F%2Fwww.sportsbook.ag%2Fsites%2Fdrupal.sportsbook%2Ffiles%2Fsb_logo_fb.gif" class="addthis_button_facebook at300b" href="http://www.addthis.com/bookmark.php?v=250" title="Facebook"><span class="at16nc at300bs at15nc at15t_facebook at16t_facebook"><span class="at_a11y">Share on facebook</span></span></a><div class="atclear"></div></div></td>
+
+               </tr>
+               <tr>
+                 <td width="220">
+                   <span>bet 20.02
+                   to win 4.71
+
+
+
+                         (paid 24.73)
+
+
+                   </span>
+                 </td>
+                 <td><span class="resultTitle">Result: Wager Won</span></td>
+               </tr>
+             </tbody></table>
+             </td>
+           </tr>
+
+           <tr>
+             <td colspan="2" class="winnerAltColor">
+             <table>
+
+
+           <tbody><tr>
+             <td width="220">
+             <span>
+
+
+
+
+                 Broncos(Denver)  <span class="">51</span>
+                 <br />
+                   Cowboys(Dallas)  48
+
+               </span>
+             </td>
+             <td><span>
+                 10/06/13(16:30 ET)<br />
+
+                   Broncos(Denver)
+
+
+
+               -425
+
+               </span>
+             </td>
+           </tr>
+
+           </tbody></table>
+           </td>
+           </tr>
+
+         </tbody></table>
+       </div>
+       <br />
+
+       <div align="center">
+         <table cellspacing="0" cellpadding="2" border="0" id="processedWon">
+           <tbody><tr>
+             <td colspan="2" class="headerBG">
+               <span class="pendingHeader">
+                 <b>10) BET ID=421296075</b>
+               </span>
+
+             </td>
+           </tr>
+           <tr>
+             <td class="winner">
+             <table>
+               <tbody><tr>
+                 <td width="220"><span>Straight Wager</span></td>
+                 <td width="100"><span>10/03/13 19:41 ET</span></td>
+
+                                                                     <td><div class="addthis_toolbox addthis_default_style"><a addthis:title="I just won $9.17 from a $5.00 Straight Wager at Sportsbook, the place where Everybody Bets!" addthis:url="http://www.sportsbook.ag" class="addthis_button_twitter at300b" href="http://www.addthis.com/bookmark.php?v=250" title="Tweet"><span class="at16nc at300bs at15nc at15t_twitter at16t_twitter"><span class="at_a11y">Share on twitter</span></span></a><a addthis:url="http://www.sportsbook.ag/livesports/facebookshare.php?title=I+just+won+%249.17+from+a+%245.00+Straight+Wager+at+Sportsbook&amp;description=The+place+where+Everybody+Bets%21&amp;url=http%3A%2F%2Fwww.sportsbook.ag&amp;siteName=www.sportsbook.ag&amp;imageUrl=http%3A%2F%2Fwww.sportsbook.ag%2Fsites%2Fdrupal.sportsbook%2Ffiles%2Fsb_logo_fb.gif" class="addthis_button_facebook at300b" href="http://www.addthis.com/bookmark.php?v=250" title="Facebook"><span class="at16nc at300bs at15nc at15t_facebook at16t_facebook"><span class="at_a11y">Share on facebook</span></span></a><div class="atclear"></div></div></td>
+
+               </tr>
+               <tr>
+                 <td width="220">
+                   <span>bet 5.00
+                   to win 4.17
+
+
+
+                         (paid 9.17)
+
+
+                   </span>
+                 </td>
+                 <td><span class="resultTitle">Result: Wager Won</span></td>
+               </tr>
+             </tbody></table>
+             </td>
+           </tr>
+
+           <tr>
+             <td colspan="2" class="winnerAltColor">
+             <table>
+
+
+           <tbody><tr>
+             <td width="220">
+             <span>
+
+
+
+
+                 Bills(Buffalo)  <span class="">24</span>
+                 <br />
+                   Browns(Cleveland)  37
+
+               </span>
+             </td>
+             <td><span>
+                 10/03/13(20:40 ET)<br />
+
+
+                   Browns(Cleveland)
+
+
+               -4 (-120)
+
+               </span>
+             </td>
+           </tr>
+
+           </tbody></table>
+           </td>
+           </tr>
+
+         </tbody></table>
+       </div>
+       <br />
+
+       <div align="center">
+         <table cellspacing="0" cellpadding="2" border="0" id="processedLost">
+           <tbody><tr>
+             <td colspan="2" class="headerBG">
+               <span class="pendingHeader">
+                 <b>11) BET ID=420920540</b>
+               </span>
+
+             </td>
+           </tr>
+           <tr>
+             <td class="loser">
+             <table>
+               <tbody><tr>
+                 <td width="220"><span>Straight Wager</span></td>
+                 <td width="100"><span>09/29/13 12:26 ET</span></td>
+
+               </tr>
+               <tr>
+                 <td width="220">
+                   <span>bet 5.00
+                   to win 4.76
+
+                   </span>
+                 </td>
+                 <td><span class="resultTitle">Result: Wager Lost</span></td>
+               </tr>
+             </tbody></table>
+             </td>
+           </tr>
+
+           <tr>
+             <td colspan="2" class="loserAltColor">
+             <table>
+
+
+           <tbody><tr>
+             <td width="220">
+             <span>
+
+
+
+
+                 Bears(Chicago)  <span class="">32</span>
+                 <br />
+                   Lions(Detroit)  40
+
+               </span>
+             </td>
+             <td><span>
+                 09/29/13(13:10 ET)<br />
+
+                   Bears(Chicago)
+
+
+
+               +2.5 (-105)
+
+               </span>
+             </td>
+           </tr>
+
+           </tbody></table>
+           </td>
+           </tr>
+
+         </tbody></table>
+       </div>
+       <br />
+
+       <div align="center">
+         <table cellspacing="0" cellpadding="2" border="0" id="rejectedWager">
+           <tbody><tr>
+             <td colspan="2" class="headerBG">
+               <span class="pendingHeader">
+                 <b>12) BET ID=420649070</b>
+               </span>
+
+             </td>
+           </tr>
+           <tr>
+             <td class="rejected">
+             <table>
+               <tbody><tr>
+                 <td width="220"><span>Straight Wager</span></td>
+                 <td width="100"><span>09/28/13 10:15 ET</span></td>
+
+               </tr>
+               <tr>
+                 <td width="220">
+                   <span>bet 5.00
+                   to win 4.55
+
+
+
+                         (paid 5.00)
+
+
+                   </span>
+                 </td>
+                 <td><span class="resultTitle">Result: No Action</span></td>
+               </tr>
+             </tbody></table>
+             </td>
+           </tr>
+
+           <tr>
+             <td colspan="2" class="rejectedAltColor">
+             <table>
+
+
+           <tbody><tr>
+             <td width="220">
+             <span>
+
+
+
+
+                 Wisconsin  <span class="">24</span>
+                 <br />
+                   OhioSt  31
+
+               </span>
+             </td>
+             <td><span>
+                 09/28/13(20:15 ET)<br />
+
+                   Wisconsin
+
+
+
+               +7 (-110)
+
+               </span>
+             </td>
+           </tr>
+
+           </tbody></table>
+           </td>
+           </tr>
+
+         </tbody></table>
+       </div>
+       <br />
+
+       <div align="center">
+         <table cellspacing="0" cellpadding="2" border="0" id="processedLost">
+           <tbody><tr>
+             <td colspan="2" class="headerBG">
+               <span class="pendingHeader">
+                 <b>13) BET ID=420649069</b>
+               </span>
+
+             </td>
+           </tr>
+           <tr>
+             <td class="loser">
+             <table>
+               <tbody><tr>
+                 <td width="220"><span>Straight Wager</span></td>
+                 <td width="100"><span>09/28/13 10:15 ET</span></td>
+
+               </tr>
+               <tr>
+                 <td width="220">
+                   <span>bet 5.00
+                   to win 4.35
+
+                   </span>
+                 </td>
+                 <td><span class="resultTitle">Result: Wager Lost</span></td>
+               </tr>
+             </tbody></table>
+             </td>
+           </tr>
+
+           <tr>
+             <td colspan="2" class="loserAltColor">
+             <table>
+
+
+           <tbody><tr>
+             <td width="220">
+             <span>
+
+
+
+
+                 TexasA&amp;M  <span class="">45</span>
+                 <br />
+                   Arkansas  33
+
+               </span>
+             </td>
+             <td><span>
+                 09/28/13(19:10 ET)<br />
+
+                   TexasA&amp;M
+
+
+
+               -14.5 (-115)
+
+               </span>
+             </td>
+           </tr>
+
+           </tbody></table>
+           </td>
+           </tr>
+
+         </tbody></table>
+       </div>
+       <br />
+
+       <div align="center">
+         <table cellspacing="0" cellpadding="2" border="0" id="processedWon">
+           <tbody><tr>
+             <td colspan="2" class="headerBG">
+               <span class="pendingHeader">
+                 <b>14) BET ID=420649068</b>
+               </span>
+
+             </td>
+           </tr>
+           <tr>
+             <td class="winner">
+             <table>
+               <tbody><tr>
+                 <td width="220"><span>Straight Wager</span></td>
+                 <td width="100"><span>09/28/13 10:15 ET</span></td>
+
+                                                                     <td><div class="addthis_toolbox addthis_default_style"><a addthis:title="I just won $19.09 from a $10.00 Straight Wager at Sportsbook, the place where Everybody Bets!" addthis:url="http://www.sportsbook.ag" class="addthis_button_twitter at300b" href="http://www.addthis.com/bookmark.php?v=250" title="Tweet"><span class="at16nc at300bs at15nc at15t_twitter at16t_twitter"><span class="at_a11y">Share on twitter</span></span></a><a addthis:url="http://www.sportsbook.ag/livesports/facebookshare.php?title=I+just+won+%2419.09+from+a+%2410.00+Straight+Wager+at+Sportsbook&amp;description=The+place+where+Everybody+Bets%21&amp;url=http%3A%2F%2Fwww.sportsbook.ag&amp;siteName=www.sportsbook.ag&amp;imageUrl=http%3A%2F%2Fwww.sportsbook.ag%2Fsites%2Fdrupal.sportsbook%2Ffiles%2Fsb_logo_fb.gif" class="addthis_button_facebook at300b" href="http://www.addthis.com/bookmark.php?v=250" title="Facebook"><span class="at16nc at300bs at15nc at15t_facebook at16t_facebook"><span class="at_a11y">Share on facebook</span></span></a><div class="atclear"></div></div></td>
+
+               </tr>
+               <tr>
+                 <td width="220">
+                   <span>bet 10.00
+                   to win 9.09
+
+
+
+                         (paid 19.09)
+
+
+                   </span>
+                 </td>
+                 <td><span class="resultTitle">Result: Wager Won</span></td>
+               </tr>
+             </tbody></table>
+             </td>
+           </tr>
+
+           <tr>
+             <td colspan="2" class="winnerAltColor">
+             <table>
+
+
+           <tbody><tr>
+             <td width="220">
+             <span>
+
+
+
+
+                 Stanford(N)  <span class="">55</span>
+                 <br />
+                   WashingtonSt(N)  17
+
+               </span>
+             </td>
+             <td><span>
+                 09/28/13(22:10 ET)<br />
+
+                   Stanford(N)
+
+
+
+               -9.5 (-110)
+
+               </span>
+             </td>
+           </tr>
+
+           </tbody></table>
+           </td>
+           </tr>
+
+         </tbody></table>
+       </div>
+       <br />
+
+       <div align="center">
+         <table cellspacing="0" cellpadding="2" border="0" id="rejectedWager">
+           <tbody><tr>
+             <td colspan="2" class="headerBG">
+               <span class="pendingHeader">
+                 <b>15) BET ID=420649067</b>
+               </span>
+
+             </td>
+           </tr>
+           <tr>
+             <td class="rejected">
+             <table>
+               <tbody><tr>
+                 <td width="220"><span>Straight Wager</span></td>
+                 <td width="100"><span>09/28/13 10:15 ET</span></td>
+
+               </tr>
+               <tr>
+                 <td width="220">
+                   <span>bet 5.00
+                   to win 4.76
+
+
+
+                         (paid 5.00)
+
+
+                   </span>
+                 </td>
+                 <td><span class="resultTitle">Result: No Action</span></td>
+               </tr>
+             </tbody></table>
+             </td>
+           </tr>
+
+           <tr>
+             <td colspan="2" class="rejectedAltColor">
+             <table>
+
+
+           <tbody><tr>
+             <td width="220">
+             <span>
+
+
+
+
+                 LSU  <span class="">41</span>
+                 <br />
+                   Georgia  44
+
+               </span>
+             </td>
+             <td><span>
+                 09/28/13(15:40 ET)<br />
+
+                   LSU
+
+
+
+               +3 (-105)
+
+               </span>
+             </td>
+           </tr>
+
+           </tbody></table>
+           </td>
+           </tr>
+
+         </tbody></table>
+       </div>
+       <br />
+
+       <div align="center">
+         <table cellspacing="0" cellpadding="2" border="0" id="processedWon">
+           <tbody><tr>
+             <td colspan="2" class="headerBG">
+               <span class="pendingHeader">
+                 <b>16) BET ID=420441139</b>
+               </span>
+
+             </td>
+           </tr>
+           <tr>
+             <td class="winner">
+             <table>
+               <tbody><tr>
+                 <td width="220"><span>Straight Wager</span></td>
+                 <td width="100"><span>09/25/13 22:25 ET</span></td>
+
+                                                                     <td><div class="addthis_toolbox addthis_default_style"><a addthis:title="I just won $33.79 from a $20.00 Straight Wager at Sportsbook, the place where Everybody Bets!" addthis:url="http://www.sportsbook.ag" class="addthis_button_twitter at300b" href="http://www.addthis.com/bookmark.php?v=250" title="Tweet"><span class="at16nc at300bs at15nc at15t_twitter at16t_twitter"><span class="at_a11y">Share on twitter</span></span></a><a addthis:url="http://www.sportsbook.ag/livesports/facebookshare.php?title=I+just+won+%2433.79+from+a+%2420.00+Straight+Wager+at+Sportsbook&amp;description=The+place+where+Everybody+Bets%21&amp;url=http%3A%2F%2Fwww.sportsbook.ag&amp;siteName=www.sportsbook.ag&amp;imageUrl=http%3A%2F%2Fwww.sportsbook.ag%2Fsites%2Fdrupal.sportsbook%2Ffiles%2Fsb_logo_fb.gif" class="addthis_button_facebook at300b" href="http://www.addthis.com/bookmark.php?v=250" title="Facebook"><span class="at16nc at300bs at15nc at15t_facebook at16t_facebook"><span class="at_a11y">Share on facebook</span></span></a><div class="atclear"></div></div></td>
+
+               </tr>
+               <tr>
+                 <td width="220">
+                   <span>bet 20.00
+                   to win 13.79
+
+
+
+                         (paid 33.79)
+
+
+                   </span>
+                 </td>
+                 <td><span class="resultTitle">Result: Wager Won</span></td>
+               </tr>
+             </tbody></table>
+             </td>
+           </tr>
+
+           <tr>
+             <td colspan="2" class="winnerAltColor">
+             <table>
+
+
+           <tbody><tr>
+             <td width="220">
+             <span>
+
+
+
+
+                 Seahawks(Seattle)  <span class="">23</span>
+                 <br />
+                   Texans(Houston)  20
+
+               </span>
+             </td>
+             <td><span>
+                 09/29/13(13:10 ET)<br />
+
+                   Seahawks(Seattle)
+
+
+
+               -145
+
+               </span>
+             </td>
+           </tr>
+
+           </tbody></table>
+           </td>
+           </tr>
+
+         </tbody></table>
+       </div>
+       <br />
+
+       <div align="center">
+         <table cellspacing="0" cellpadding="2" border="0" id="processedWon">
+           <tbody><tr>
+             <td colspan="2" class="headerBG">
+               <span class="pendingHeader">
+                 <b>17) BET ID=420441138</b>
+               </span>
+
+             </td>
+           </tr>
+           <tr>
+             <td class="winner">
+             <table>
+               <tbody><tr>
+                 <td width="220"><span>Straight Wager</span></td>
+                 <td width="100"><span>09/25/13 22:25 ET</span></td>
+
+                                                                     <td><div class="addthis_toolbox addthis_default_style"><a addthis:title="I just won $23.33 from a $20.00 Straight Wager at Sportsbook, the place where Everybody Bets!" addthis:url="http://www.sportsbook.ag" class="addthis_button_twitter at300b" href="http://www.addthis.com/bookmark.php?v=250" title="Tweet"><span class="at16nc at300bs at15nc at15t_twitter at16t_twitter"><span class="at_a11y">Share on twitter</span></span></a><a addthis:url="http://www.sportsbook.ag/livesports/facebookshare.php?title=I+just+won+%2423.33+from+a+%2420.00+Straight+Wager+at+Sportsbook&amp;description=The+place+where+Everybody+Bets%21&amp;url=http%3A%2F%2Fwww.sportsbook.ag&amp;siteName=www.sportsbook.ag&amp;imageUrl=http%3A%2F%2Fwww.sportsbook.ag%2Fsites%2Fdrupal.sportsbook%2Ffiles%2Fsb_logo_fb.gif" class="addthis_button_facebook at300b" href="http://www.addthis.com/bookmark.php?v=250" title="Facebook"><span class="at16nc at300bs at15nc at15t_facebook at16t_facebook"><span class="at_a11y">Share on facebook</span></span></a><div class="atclear"></div></div></td>
+
+               </tr>
+               <tr>
+                 <td width="220">
+                   <span>bet 20.00
+                   to win 3.33
+
+
+
+                         (paid 23.33)
+
+
+                   </span>
+                 </td>
+                 <td><span class="resultTitle">Result: Wager Won</span></td>
+               </tr>
+             </tbody></table>
+             </td>
+           </tr>
+
+           <tr>
+             <td colspan="2" class="winnerAltColor">
+             <table>
+
+
+           <tbody><tr>
+             <td width="220">
+             <span>
+
+
+
+
+                 Eagles(Philadelphia)  <span class="">20</span>
+                 <br />
+                   Broncos(Denver)  52
+
+               </span>
+             </td>
+             <td><span>
+                 09/29/13(16:30 ET)<br />
+
+
+                   Broncos(Denver)
+
+
+               -600
+
+               </span>
+             </td>
+           </tr>
+
+           </tbody></table>
+           </td>
+           </tr>
+
+         </tbody></table>
+       </div>
+       <br />
+
+       <div align="center">
+         <table cellspacing="0" cellpadding="2" border="0" id="processedWon">
+           <tbody><tr>
+             <td colspan="2" class="headerBG">
+               <span class="pendingHeader">
+                 <b>18) BET ID=420441137</b>
+               </span>
+
+             </td>
+           </tr>
+           <tr>
+             <td class="winner">
+             <table>
+               <tbody><tr>
+                 <td width="220"><span>Straight Wager</span></td>
+                 <td width="100"><span>09/25/13 22:25 ET</span></td>
+
+                                                                     <td><div class="addthis_toolbox addthis_default_style"><a addthis:title="I just won $31.11 from a $20.00 Straight Wager at Sportsbook, the place where Everybody Bets!" addthis:url="http://www.sportsbook.ag" class="addthis_button_twitter at300b" href="http://www.addthis.com/bookmark.php?v=250" title="Tweet"><span class="at16nc at300bs at15nc at15t_twitter at16t_twitter"><span class="at_a11y">Share on twitter</span></span></a><a addthis:url="http://www.sportsbook.ag/livesports/facebookshare.php?title=I+just+won+%2431.11+from+a+%2420.00+Straight+Wager+at+Sportsbook&amp;description=The+place+where+Everybody+Bets%21&amp;url=http%3A%2F%2Fwww.sportsbook.ag&amp;siteName=www.sportsbook.ag&amp;imageUrl=http%3A%2F%2Fwww.sportsbook.ag%2Fsites%2Fdrupal.sportsbook%2Ffiles%2Fsb_logo_fb.gif" class="addthis_button_facebook at300b" href="http://www.addthis.com/bookmark.php?v=250" title="Facebook"><span class="at16nc at300bs at15nc at15t_facebook at16t_facebook"><span class="at_a11y">Share on facebook</span></span></a><div class="atclear"></div></div></td>
+
+               </tr>
+               <tr>
+                 <td width="220">
+                   <span>bet 20.00
+                   to win 11.11
+
+
+
+                         (paid 31.11)
+
+
+                   </span>
+                 </td>
+                 <td><span class="resultTitle">Result: Wager Won</span></td>
+               </tr>
+             </tbody></table>
+             </td>
+           </tr>
+
+           <tr>
+             <td colspan="2" class="winnerAltColor">
+             <table>
+
+
+           <tbody><tr>
+             <td width="220">
+             <span>
+
+
+
+
+                 49ers(SanFrancisco)  <span class="">35</span>
+                 <br />
+                   Rams(StLouis)  11
+
+               </span>
+             </td>
+             <td><span>
+                 09/26/13(20:30 ET)<br />
+
+                   49ers(SanFrancisco)
+
+
+
+               -180
+
+               </span>
+             </td>
+           </tr>
+
+           </tbody></table>
+           </td>
+           </tr>
+
+         </tbody></table>
+       </div>
+       <br />
+
+       <div align="center">
+         <table cellspacing="0" cellpadding="2" border="0" id="processedWon">
+           <tbody><tr>
+             <td colspan="2" class="headerBG">
+               <span class="pendingHeader">
+                 <b>19) BET ID=420440997</b>
+               </span>
+
+             </td>
+           </tr>
+           <tr>
+             <td class="winner">
+             <table>
+               <tbody><tr>
+                 <td width="220"><span>Parlay (2 Teams)</span></td>
+                 <td width="100"><span>09/25/13 22:20 ET</span></td>
+
+                                                                     <td><div class="addthis_toolbox addthis_default_style"><a addthis:title="I just won $54.00 from a $15.00 Parlay (2 Teams) at Sportsbook, the place where Everybody Bets!" addthis:url="http://www.sportsbook.ag" class="addthis_button_twitter at300b" href="http://www.addthis.com/bookmark.php?v=250" title="Tweet"><span class="at16nc at300bs at15nc at15t_twitter at16t_twitter"><span class="at_a11y">Share on twitter</span></span></a><a addthis:url="http://www.sportsbook.ag/livesports/facebookshare.php?title=I+just+won+%2454.00+from+a+%2415.00+Parlay+%282+Teams%29+at+Sportsbook&amp;description=The+place+where+Everybody+Bets%21&amp;url=http%3A%2F%2Fwww.sportsbook.ag&amp;siteName=www.sportsbook.ag&amp;imageUrl=http%3A%2F%2Fwww.sportsbook.ag%2Fsites%2Fdrupal.sportsbook%2Ffiles%2Fsb_logo_fb.gif" class="addthis_button_facebook at300b" href="http://www.addthis.com/bookmark.php?v=250" title="Facebook"><span class="at16nc at300bs at15nc at15t_facebook at16t_facebook"><span class="at_a11y">Share on facebook</span></span></a><div class="atclear"></div></div></td>
+
+               </tr>
+               <tr>
+                 <td width="220">
+                   <span>bet 15.00
+                   to win 39.00
+
+
+
+                         (paid 54.00)
+
+
+                   </span>
+                 </td>
+                 <td><span class="resultTitle">Result: Wager Won</span></td>
+               </tr>
+             </tbody></table>
+             </td>
+           </tr>
+
+           <tr>
+             <td colspan="2" class="winnerAltColor">
+             <table>
+
+
+           <tbody><tr>
+             <td width="220">
+             <span>
+
+
+
+
+                 Iowa  <span class="">23</span>
+                 <br />
+                   MinnesotaU  7
+
+               </span>
+             </td>
+             <td><span>
+                 09/28/13(15:45 ET)<br />
+
+                   Iowa
+
+
+
+               -1.5 (-110)
+
+               </span>
+             </td>
+           </tr>
+
+           </tbody></table>
+           </td>
+           </tr>
+
+
+           <tr>
+             <td colspan="2" class="winner">
+             <table>
+
+
+           <tbody><tr>
+             <td width="220">
+             <span>
+
+
+
+
+                 LSU  <span class="">41</span>
+                 <br />
+                   Georgia  44
+
+               </span>
+             </td>
+             <td><span>
+                 09/28/13(15:40 ET)<br />
+
+
+                   Georgia
+
+
+               -2.5 (-110)
+
+               </span>
+             </td>
+           </tr>
+
+           </tbody></table>
+           </td>
+           </tr>
+
+         </tbody></table>
+       </div>
+       <br />
+
+       <div align="center">
+         <table cellspacing="0" cellpadding="2" border="0" id="rejectedWager">
+           <tbody><tr>
+             <td colspan="2" class="headerBG">
+               <span class="pendingHeader">
+                 <b>20) BET ID=420440238</b>
+               </span>
+
+             </td>
+           </tr>
+           <tr>
+             <td class="rejected">
+             <table>
+               <tbody><tr>
+                 <td width="220"><span>Straight Wager</span></td>
+                 <td width="100"><span>09/25/13 22:04 ET</span></td>
+
+               </tr>
+               <tr>
+                 <td width="220">
+                   <span>bet 20.00
+                   to win 18.18
+
+
+
+                         (paid 20.00)
+
+
+                   </span>
+                 </td>
+                 <td><span class="resultTitle">Result: No Action</span></td>
+               </tr>
+             </tbody></table>
+             </td>
+           </tr>
+
+           <tr>
+             <td colspan="2" class="rejectedAltColor">
+             <table>
+
+
+           <tbody><tr>
+             <td width="220">
+             <span>
+
+
+
+
+                 Wisconsin  <span class="">24</span>
+                 <br />
+                   OhioSt  31
+
+               </span>
+             </td>
+             <td><span>
+                 09/28/13(20:15 ET)<br />
+
+                   Wisconsin
+
+
+
+               +7 (-110)
+
+               </span>
+             </td>
+           </tr>
+
+           </tbody></table>
+           </td>
+           </tr>
+
+         </tbody></table>
+       </div>
+       <br />
+
+       <div align="center">
+         <table cellspacing="0" cellpadding="2" border="0" id="processedWon">
+           <tbody><tr>
+             <td colspan="2" class="headerBG">
+               <span class="pendingHeader">
+                 <b>21) BET ID=420293422</b>
+               </span>
+
+             </td>
+           </tr>
+           <tr>
+             <td class="winner">
+             <table>
+               <tbody><tr>
+                 <td width="220"><span>Straight Wager</span></td>
+                 <td width="100"><span>09/23/13 07:25 ET</span></td>
+
+                                                                     <td><div class="addthis_toolbox addthis_default_style"><a addthis:title="I just won $21.25 from a $20.00 Straight Wager at Sportsbook, the place where Everybody Bets!" addthis:url="http://www.sportsbook.ag" class="addthis_button_twitter at300b" href="http://www.addthis.com/bookmark.php?v=250" title="Tweet"><span class="at16nc at300bs at15nc at15t_twitter at16t_twitter"><span class="at_a11y">Share on twitter</span></span></a><a addthis:url="http://www.sportsbook.ag/livesports/facebookshare.php?title=I+just+won+%2421.25+from+a+%2420.00+Straight+Wager+at+Sportsbook&amp;description=The+place+where+Everybody+Bets%21&amp;url=http%3A%2F%2Fwww.sportsbook.ag&amp;siteName=www.sportsbook.ag&amp;imageUrl=http%3A%2F%2Fwww.sportsbook.ag%2Fsites%2Fdrupal.sportsbook%2Ffiles%2Fsb_logo_fb.gif" class="addthis_button_facebook at300b" href="http://www.addthis.com/bookmark.php?v=250" title="Facebook"><span class="at16nc at300bs at15nc at15t_facebook at16t_facebook"><span class="at_a11y">Share on facebook</span></span></a><div class="atclear"></div></div></td>
+
+               </tr>
+               <tr>
+                 <td width="220">
+                   <span>bet 20.00
+                   to win 1.25
+
+
+
+                         (paid 21.25)
+
+
+                   </span>
+                 </td>
+                 <td><span class="resultTitle">Result: Wager Won</span></td>
+               </tr>
+             </tbody></table>
+             </td>
+           </tr>
+
+           <tr>
+             <td colspan="2" class="winnerAltColor">
+             <table>
+
+
+           <tbody><tr>
+             <td width="220">
+             <span>
+
+
+
+
+                 Raiders(Oakland)  <span class="">21</span>
+                 <br />
+                   Broncos(Denver)  37
+
+               </span>
+             </td>
+             <td><span>
+                 09/23/13(20:45 ET)<br />
+
+
+                   Broncos(Denver)
+
+
+               -1600
+
+               </span>
+             </td>
+           </tr>
+
+           </tbody></table>
+           </td>
+           </tr>
+
+         </tbody></table>
+       </div>
+       <br />
+
+       <div align="center">
+         <table cellspacing="0" cellpadding="2" border="0" id="processedLost">
+           <tbody><tr>
+             <td colspan="2" class="headerBG">
+               <span class="pendingHeader">
+                 <b>22) BET ID=419841424</b>
+               </span>
+
+             </td>
+           </tr>
+           <tr>
+             <td class="loser">
+             <table>
+               <tbody><tr>
+                 <td width="220"><span>Straight Wager</span></td>
+                 <td width="100"><span>09/20/13 21:03 ET</span></td>
+
+               </tr>
+               <tr>
+                 <td width="220">
+                   <span>bet 20.00
+                   to win 13.33
+
+                   </span>
+                 </td>
+                 <td><span class="resultTitle">Result: Wager Lost</span></td>
+               </tr>
+             </tbody></table>
+             </td>
+           </tr>
+
+           <tr>
+             <td colspan="2" class="loserAltColor">
+             <table>
+
+
+           <tbody><tr>
+             <td width="220">
+             <span>
+
+
+
+
+                 Packers(GreenBay)  <span class="">30</span>
+                 <br />
+                   Bengals(Cincinnati)  34
+
+               </span>
+             </td>
+             <td><span>
+                 09/22/13(13:05 ET)<br />
+
+                   Packers(GreenBay)
+
+
+
+               -150
+
+               </span>
+             </td>
+           </tr>
+
+           </tbody></table>
+           </td>
+           </tr>
+
+         </tbody></table>
+       </div>
+       <br />
+
+       <div align="center">
+         <table cellspacing="0" cellpadding="2" border="0" id="processedLost">
+           <tbody><tr>
+             <td colspan="2" class="headerBG">
+               <span class="pendingHeader">
+                 <b>23) BET ID=419841423</b>
+               </span>
+
+             </td>
+           </tr>
+           <tr>
+             <td class="loser">
+             <table>
+               <tbody><tr>
+                 <td width="220"><span>Straight Wager</span></td>
+                 <td width="100"><span>09/20/13 21:03 ET</span></td>
+
+               </tr>
+               <tr>
+                 <td width="220">
+                   <span>bet 20.00
+                   to win 4.00
+
+                   </span>
+                 </td>
+                 <td><span class="resultTitle">Result: Wager Lost</span></td>
+               </tr>
+             </tbody></table>
+             </td>
+           </tr>
+
+           <tr>
+             <td colspan="2" class="loserAltColor">
+             <table>
+
+
+           <tbody><tr>
+             <td width="220">
+             <span>
+
+
+
+
+                 Colts(Indianapolis)  <span class="">27</span>
+                 <br />
+                   49ers(SanFrancisco)  7
+
+               </span>
+             </td>
+             <td><span>
+                 09/22/13(16:30 ET)<br />
+
+
+                   49ers(SanFrancisco)
+
+
+               -500
+
+               </span>
+             </td>
+           </tr>
+
+           </tbody></table>
+           </td>
+           </tr>
+
+         </tbody></table>
+       </div>
+       <br />
+
+       <div align="center">
+         <table cellspacing="0" cellpadding="2" border="0" id="processedLost">
+           <tbody><tr>
+             <td colspan="2" class="headerBG">
+               <span class="pendingHeader">
+                 <b>24) BET ID=419841357</b>
+               </span>
+
+             </td>
+           </tr>
+           <tr>
+             <td class="loser">
+             <table>
+               <tbody><tr>
+                 <td width="220"><span>Straight Wager</span></td>
+                 <td width="100"><span>09/20/13 21:02 ET</span></td>
+
+               </tr>
+               <tr>
+                 <td width="220">
+                   <span>bet 20.00
+                   to win 18.18
+
+                   </span>
+                 </td>
+                 <td><span class="resultTitle">Result: Wager Lost</span></td>
+               </tr>
+             </tbody></table>
+             </td>
+           </tr>
+
+           <tr>
+             <td colspan="2" class="loserAltColor">
+             <table>
+
+
+           <tbody><tr>
+             <td width="220">
+             <span>
+
+
+
+
+                 Packers(GreenBay)  <span class="">30</span>
+                 <br />
+                   Bengals(Cincinnati)  34
+
+               </span>
+             </td>
+             <td><span>
+                 09/22/13(13:05 ET)<br />
+
+                   Packers(GreenBay)
+
+
+
+               -3 (-110)
+
+               </span>
+             </td>
+           </tr>
+
+           </tbody></table>
+           </td>
+           </tr>
+
+         </tbody></table>
+       </div>
+       <br />
+
+       <div align="center">
+         <table cellspacing="0" cellpadding="2" border="0" id="processedLost">
+           <tbody><tr>
+             <td colspan="2" class="headerBG">
+               <span class="pendingHeader">
+                 <b>25) BET ID=419841356</b>
+               </span>
+
+             </td>
+           </tr>
+           <tr>
+             <td class="loser">
+             <table>
+               <tbody><tr>
+                 <td width="220"><span>Straight Wager</span></td>
+                 <td width="100"><span>09/20/13 21:02 ET</span></td>
+
+               </tr>
+               <tr>
+                 <td width="220">
+                   <span>bet 20.00
+                   to win 19.05
+
+                   </span>
+                 </td>
+                 <td><span class="resultTitle">Result: Wager Lost</span></td>
+               </tr>
+             </tbody></table>
+             </td>
+           </tr>
+
+           <tr>
+             <td colspan="2" class="loserAltColor">
+             <table>
+
+
+           <tbody><tr>
+             <td width="220">
+             <span>
+
+
+
+
+                 Colts(Indianapolis)  <span class="">27</span>
+                 <br />
+                   49ers(SanFrancisco)  7
+
+               </span>
+             </td>
+             <td><span>
+                 09/22/13(16:30 ET)<br />
+
+
+                   49ers(SanFrancisco)
+
+
+               -10 (-105)
+
+               </span>
+             </td>
+           </tr>
+
+           </tbody></table>
+           </td>
+           </tr>
+
+         </tbody></table>
+       </div>
+       <br />
+     </td>
+   </tr>
+ </tbody></table>
+ </div>
+ <div align="center">
+ <table width="100%" cellspacing="0" cellpadding="0" border="0" id="pagination" class="border">
+   <tbody><tr>
+     <td height="12" colspan="2" class="bottomBG"></td>
+   </tr>
+
+   <tr>
+     <td valign="middle" align="left" class="bottomColorBG">
+       <a onmouseout="printImg.src='images/print_up.gif'" onmouseover="printImg.src='images/print_over.gif'" onclick="window.print(); return false;" class="left" href="">
+           <img border="0" name="printImg" src="images/print_up.gif" />
+       </a>
+     </td>
+     <td valign="middle" align="right" class="bottomColorBG">
+       <form id="pager" name="pager" action="wagers.cgi" method="get">
+         <input type="hidden" value="" name="dateRangeSelection" id="dateRangeSelection" />
+         <input type="hidden" value="0" name="betState" id="betState" />
+         <input type="hidden" value="" name="priorDays" id="priorDays" />
+         <input type="hidden" value="" name="startDate" id="startDate" />
+         <input type="hidden" value="" name="endDate" id="endDate" />
+                                 <input type="hidden" value="" name="page" id="page" />
+
+         <table cellspacing="0" cellpadding="3" border="0">
+           <tbody><tr valign="middle">
+             <td valign="middle" align="left" class="bottomColorBG">
+
+             </td>
+             <td width="31" valign="middle" class="bottomColorBG">PAGE</td>
+             <td valign="middle" class="bottomColorBG">
+
+             <span class="currentPage">1</span>
+
+
+
+             <a onclick="goToPage(1); return false;" href="" class="pagenum">2</a>
+
+             </td>
+             <td valign="middle" align="right" class="bottomColorBG">
+
+               <a onclick="goToPage(1); return false;" onmouseout="nextImg.src='images/next_up.gif'" onmouseover="nextImg.src='images/next_over.gif'" href="">
+                  <img height="15" width="45" border="0" name="nextImg" src="images/next_up.gif" />
+               </a>
+
+             </td>
+           </tr>
+         </tbody></table>
+       </form>
+     </td>
+   </tr>
+ </tbody></table>
+ </div>
+ </div>
+ </div>
+ <br /><br /><br />
+ <script src="https://s7.addthis.com/js/250/addthis_widget.js" type="text/javascript"></script><div style="visibility: hidden; height: 1px; width: 1px; position: absolute; z-index: 100000;" id="_atssh"><iframe id="_atssh70" title="AddThis utility frame" style="height: 1px; width: 1px; position: absolute; z-index: 100000; border: 0px none; left: 0px; top: 0px;" src="//ct1.addthis.com/static/r07/sh138.html#"></iframe></div><script type="text/javascript" src="https://ct1.addthis.com/static/r07/core104.js"></script>
+ <div class="ui-datepicker ui-widget ui-widget-content ui-helper-clearfix ui-corner-all" id="ui-datepicker-div"></div></body></html>

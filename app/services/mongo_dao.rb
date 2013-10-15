@@ -1,6 +1,6 @@
 class MongoDao
   CLIENT = Sinatra::Application.settings.mongo_client
-  DB_NAME = 'mydb' #Sinatra::Application.settings.mongo_database_name
+  DB_NAME = Sinatra::Application.settings.mongo_database_name
 
   def initialize(collection_name)
     @collection_name = collection_name

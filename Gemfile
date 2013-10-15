@@ -6,13 +6,14 @@ gem 'slim'
 gem 'mongo'
 gem 'bson_ext'
 gem 'virtus'
-gem "mechanize", "~> 2.7.2"
 gem 'sass'
 gem 'rack-coffee'
 gem 'i18n'
 gem 'active_support'
+gem 'watir'
 
 group :development do
   gem 'foreman'
   gem 'shotgun'
+  gem 'racksh'
 end
