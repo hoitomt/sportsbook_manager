@@ -12,7 +12,7 @@ class Tickets
     private
 
     def persist_ticket(ticket)
-      dao.add_or_update({'sb_bet_id' => ticket.sb_bet_id}, parse_ticket(ticket))
+      dao.upsert({'sb_bet_id' => ticket.sb_bet_id}, parse_ticket(ticket))
     end
 
     def parse_ticket(ticket)

@@ -8,3 +8,7 @@ get '/tickets/update/?' do
   Tickets.save_tickets(SportsbookApi.get_tickets)
   slim :'tickets/index', layout: :'layouts/application'
 end
+
+get '/tickets/:_id/add_tag' do
+  p "Params #{params}"
+end

@@ -16,7 +16,6 @@ class Tag
   def self.find(id)
     b_id = BSON.ObjectId(id)
     data = dao.find_one({_id: b_id})
-    p "DB Result #{data}"
     Tag.new(data)
   end
 
@@ -31,6 +30,10 @@ class Tag
   def save
     p "Attributes #{persist_attributes}"
     Tag.dao.save(persist_attributes)
+  end
+
+  def update(params)
+    Tag.dao.update(params)
   end
 
   def persist_attributes

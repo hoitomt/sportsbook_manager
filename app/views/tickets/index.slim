@@ -21,7 +21,7 @@
           td==ticket.sb_bet_id
           td colspan="2"
             - @tags.each do |tag|
-              .tag==tag.name
+              a.tag href="/tickets/#{ticket._id}/add_tag" ==tag.name
         tr class==ticket.outcome_class
           td
           td colspan="5"

@@ -16,7 +16,7 @@ class MongoDao
     @args[:sort]
   end
 
-  def add_or_update(query, doc)
+  def upsert(query, doc)
     save(doc) unless update(query, doc)
   end
 
