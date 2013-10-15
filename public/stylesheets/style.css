@@ -1,13 +1,20 @@
 .home-top-margin {
   margin-top: 50px; }
 
-.results .heading {
+.results .th {
   font-weight: bold;
   font-size: 18px; }
-.results .tickets:nth-child(even) {
-  background-color: #00CC99; }
-.results .tickets:nth-child(odd) {
-  background-color: #00FF99; }
+.results .heading {
+  font-weight: bold;
+  font-size: 12px; }
+.results tr.won {
+  background-color: #82CAFF; }
+.results tr.lost {
+  background-color: #FFB682; }
+.results tr.pending {
+  background-color: #CBFF82; }
+.results tr.ticket-header {
+  font-weight: bold; }
 .results .tickets .result {
   font-weight: bold; }
 .results .tickets .detail {

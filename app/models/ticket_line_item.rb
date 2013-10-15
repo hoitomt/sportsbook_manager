@@ -1,3 +1,5 @@
+require 'cgi'
+
 class TicketLineItem
   include Virtus
 
@@ -14,5 +16,9 @@ class TicketLineItem
 
   def date_display
     line_item_date.strftime("%_m/%e/%y")
+  end
+
+  def line_item_spread_display
+    CGI.unescapeHTML(line_item_spread)
   end
 end

@@ -1,5 +1,6 @@
 get '/tickets/?' do
   @tickets = Ticket.all
+  @tags = Tag.all
   slim :'tickets/index', layout: :'layouts/application'
 end
 

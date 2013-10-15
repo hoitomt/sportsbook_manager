@@ -2,23 +2,34 @@
   margin-top: 50px;
 }
 .results {
-  .heading {
+  .th {
     font-weight: bold;
     font-size: 18px;
   }
+  .heading {
+    font-weight: bold;
+    font-size: 12px;
+  }
+  tr {
+    &.won {
+      background-color: #82CAFF;
+    }
+    &.lost {
+      background-color: #FFB682;
+    }
+    &.pending {
+      background-color: #CBFF82;
+    }
+    &.ticket-header {
+      font-weight: bold;
+    }
+  }
   .tickets {
-    &:nth-child(even) {
-      background-color: #00CC99;
-    }
-    &:nth-child(odd) {
-      background-color: #00FF99;
-    }
     .result {
       font-weight: bold;
     }
     .detail {
       font-size: 11px;
-      // background-color: #fff;
       .heading {
         font-size: inherit;
         font-weight: bold;

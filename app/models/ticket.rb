@@ -30,4 +30,8 @@ class Ticket
   def display_date
     wager_date.strftime("%_m/%e/%y")
   end
+
+  def outcome_class
+    outcome ? outcome.downcase : ''
+  end
 end
