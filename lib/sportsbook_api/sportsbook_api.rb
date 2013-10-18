@@ -1,10 +1,9 @@
-$LOAD_PATH << File.expand_path(File.dirname(__FILE__) + '/../lib')
-require_relative "sportsbook_api/version"
-require_relative "sportsbook_api/sportsbook_config"
-require_relative "sportsbook_api/parse_tickets"
-require_relative "sportsbook_api/sportsbook"
-require_relative "sportsbook_api/ticket"
-require_relative "sportsbook_api/ticket_line_item"
+require_relative "version"
+require_relative "sportsbook_config"
+require_relative "parse_tickets"
+require_relative "sportsbook"
+require_relative "ticket"
+require_relative "ticket_line_item"
 
 module SportsbookApi
   class << self

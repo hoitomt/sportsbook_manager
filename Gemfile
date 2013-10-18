@@ -11,6 +11,7 @@ gem 'rack-coffee'
 gem 'i18n'
 gem 'active_support'
 gem 'watir'
+gem 'nokogiri'
 
 group :development do
   gem 'foreman'

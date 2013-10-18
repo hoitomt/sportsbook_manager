@@ -1,4 +1,6 @@
-require 'sinatra'
+require 'bundler'
+Bundler.require(:default)
+
 require './lib/sportsbook_api/sportsbook_api'
 require 'slim'
 require 'active_support/core_ext'
