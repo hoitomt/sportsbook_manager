@@ -5,9 +5,9 @@
     .row.tags
       .col-md-12
         .col-md-2
-          a href="/tags/edit/#{tag._id}" ==tag.name
+          a href="/tags/edit/#{tag.id}" ==tag.name
         .col-md-2
-          a.delete_tag href="/tags/#{tag._id}" delete
+          == slim :'tags/delete_tag', locals: {tag: tag}
 
 .row style="margin-top: 20px;"
   .col-md-12

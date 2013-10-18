@@ -10,6 +10,9 @@
     font-weight: bold;
     font-size: 12px;
   }
+  td {
+    padding: 2px;
+  }
   tr {
     &.won {
       background-color: #82CAFF;
@@ -39,4 +42,14 @@
       }
     }
   }
+}
+.row {
+  &.update-link {
+    padding: 10px inherit;
+  }
+}
+.footer {
+  padding-top: 19px;
+  color: #777;
+  border-top: 1px solid #e5e5e5;
 }

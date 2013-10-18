@@ -1,5 +1,3 @@
-require 'nokogiri'
-
 module SportsbookApi
 	class ParseTickets
 

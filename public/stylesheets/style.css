@@ -7,6 +7,8 @@
 .results .heading {
   font-weight: bold;
   font-size: 12px; }
+.results td {
+  padding: 2px; }
 .results tr.won {
   background-color: #82CAFF; }
 .results tr.lost {
@@ -24,3 +26,11 @@
     font-weight: bold; }
   .results .tickets .detail .team {
     text-align: right; }
+
+.row.update-link {
+  padding: 10px inherit; }
+
+.footer {
+  padding-top: 19px;
+  color: #777;
+  border-top: 1px solid #e5e5e5; }

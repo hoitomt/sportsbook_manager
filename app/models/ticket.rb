@@ -27,6 +27,10 @@ class Ticket
     {:sort => {'wager_date' => :desc}}
   end
 
+  def id
+    @_id.to_s
+  end
+
   def display_date
     wager_date.strftime("%_m/%e/%y")
   end

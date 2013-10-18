@@ -27,19 +27,31 @@ class Tag
     MongoDao.new(COLLECTION)
   end
 
+  def id
+    @_id.to_s
+  end
+
   def save
-    p "Attributes #{persist_attributes}"
-    Tag.dao.save(persist_attributes)
+    Tag.dao.upsert(id_query, persist_attributes)
   end
 
   def update(params)
-    Tag.dao.update(params)
+    self.attributes = self.attributes.merge(params[:tag])
+    save
+  end
+
+  def delete
+    Tag.dao.remove(_id)
   end
 
   def persist_attributes
     pa = self.attributes.dup
-    pa.delete(:_id)
+    pa.delete(:_id) if _id.blank?
     pa
+  end
+
+  def id_query
+    {'_id' => _id}
   end
 
 end

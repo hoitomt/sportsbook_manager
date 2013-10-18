@@ -9,6 +9,10 @@ get '/tickets/update/?' do
   slim :'tickets/index', layout: :'layouts/application'
 end
 
-get '/tickets/:_id/add_tag' do
+post '/tickets/:id/add_tag' do
   p "Params #{params}"
+  tag = Tag.find(params[:tag_id])
+  ticket = Ticket.find(params[:id])
+  ticket.add_tag(tag)
+  redirect '/tickets'
 end

@@ -17,15 +17,21 @@ class MongoDao
   end
 
   def upsert(query, doc)
-    save(doc) unless update(query, doc)
+    save(doc) unless update_doc(query, doc)
   end
 
   def save(doc=nil)
     collection.insert(doc) if doc
   end
 
-  def update(query, doc)
+  def update_doc(query, doc)
     update = collection.update(query, doc)
+    update['updatedExisting']
+  end
+
+  # update_attributes: {'attr_name' => attr_value}
+  def update(id, update_attributes)
+    update = collection.update({"_id" => id}, {"$set" => update_attributes})
     update['updatedExisting']
   end
 
@@ -48,6 +54,11 @@ class MongoDao
 
   def blank?(query)
     find_one(query).empty?
+  end
+
+  def remove(id)
+    record = collection.find_one({'_id' => id})
+    collection.remove(record)
   end
 
   private
