@@ -1,14 +1,30 @@
 require 'cgi'
 
 class TicketLineItem
-  include Virtus
+  include DataMapper::Resource
 
-  attribute :away_team,         String
-  attribute :away_score,        Integer
-  attribute :home_team,         String
-  attribute :home_score,        Integer
-  attribute :line_item_date,    Time
-  attribute :line_item_spread,  String
+  property :id, Serial
+  property :ticket_id,         Integer
+  property :away_team,         String
+  property :away_score,        Integer
+  property :home_team,         String
+  property :home_score,        Integer
+  property :line_item_date,    Time
+  property :line_item_spread,  String
+
+  def self.add_or_update(tle_hash)
+    existing_ticket_line_item(tle_hash) || TicketLineItem.new(tle_hash)
+  end
+
+  def self.existing_ticket_line_item(tle_hash)
+    criteria = {
+        ticket_id: tle_hash[:ticket_id],
+        away_team: tle_hash[:away_team],
+        home_team: tle_hash[:home_team],
+        line_item_spread: tle_hash[:line_item_spread]
+      }
+    TicketLineItem.first(criteria)
+  end
 
   def team_display
     "#{away_team} at #{home_team}"
@@ -22,3 +38,5 @@ class TicketLineItem
     CGI.unescapeHTML(line_item_spread)
   end
 end
+
+DataMapper.finalize

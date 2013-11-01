@@ -1,9 +1,7 @@
 class Tickets
-
   class << self
 
     def save_tickets(tickets)
-      p "Tickets #{tickets}"
       tickets.each do |ticket|
         persist_ticket(ticket)
       end
@@ -12,12 +10,20 @@ class Tickets
     private
 
     def persist_ticket(ticket)
-      dao.upsert({'sb_bet_id' => ticket.sb_bet_id}, parse_ticket(ticket))
+      saved_ticket = persist_base_ticket(ticket)
+      ticket.ticket_line_items.each do |line_item|
+        persist_ticket_line_item(saved_ticket, line_item)
+      end
     end
 
-    def parse_ticket(ticket)
-      p "Ticket #{ticket.attributes}"
-      ticket.to_hash
+    def persist_base_ticket(ticket)
+      ticket_attributes = ticket.attributes.dup
+      ticket_attributes.delete(:ticket_line_items)
+      Ticket.create(ticket_attributes)
+    end
+
+    def persist_ticket_line_item(ticket, ticket_line_item)
+      TicketLineItem.create(ticket_line_item.attributes.merge({ticket_id: ticket.id}))
     end
 
     def dao
@@ -25,5 +31,4 @@ class Tickets
     end
 
   end
-
 end

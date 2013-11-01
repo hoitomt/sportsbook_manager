@@ -1,0 +1,25 @@
+.col-sm-4
+  .panel class="panel-#{ticket.outcome_class}"
+    .panel-heading
+      h3.panel-title
+        = ticket.display_date
+        ' -
+        = ticket.type
+    .panel-body.clearfix
+      .row
+        .col-sm-4
+          p.lead Wagered
+          p =currency(ticket.amount_wagered)
+        .col-sm-4
+          p.lead To Win
+          p =currency(ticket.amount_to_win)
+        .col-sm-4
+          p.lead Result
+          p =ticket.outcome
+      .well.clearfix
+        == slim :'tickets/ticket_line_items', locals: {ticket_line_items: ticket.ticket_line_items}
+      #ticket-tags.col-sm-12.row
+        == slim :'ticket_tags/ticket_tag', locals: {ticket: ticket}
+      p.pull-right
+        small
+          =ticket.sb_bet_id

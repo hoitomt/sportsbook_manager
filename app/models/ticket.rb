@@ -1,34 +1,16 @@
 class Ticket
-  include Virtus
+  include DataMapper::Resource
 
-  COLLECTION = "tickets"
+  property :id, Serial
+  property :sb_bet_id,         Integer
+  property :wager_date,        Time
+  property :type,              String
+  property :amount_wagered,    Float
+  property :amount_to_win,     Float
+  property :outcome,           String
 
-  attribute :_id,               BSON::ObjectId
-  attribute :sb_bet_id,         Integer
-  attribute :wager_date,        Time
-  attribute :type,              String
-  attribute :amount_wagered,    Float
-  attribute :amount_to_win,     Float
-  attribute :outcome,           String
-  attribute :ticket_line_items, Array[TicketLineItem]
-  attribute :tags,              Array[Tag]
-
-  def self.all
-    dao.all(default_sort).each_with_object([]) do |ticket_data, a|
-      a << Ticket.new(ticket_data)
-    end
-  end
-
-  def self.dao
-    MongoDao.new(COLLECTION)
-  end
-
-  def self.default_sort
-    {:sort => {'wager_date' => :desc}}
-  end
-
-  def id
-    @_id.to_s
+  def self.add_or_update(t_hash)
+    Ticket.first(sb_bet_id: t_hash[:sb_bet_id]) || Ticket.new(t_hash)
   end
 
   def display_date
@@ -36,6 +18,28 @@ class Ticket
   end
 
   def outcome_class
-    outcome ? outcome.downcase : ''
+    return '' unless outcome
+    bootstrap[outcome.downcase]
   end
+
+  def ticket_line_items
+    TicketLineItem.all(ticket_id: id)
+  end
+
+  def add_tag(tag, amount)
+    TicketTag.create(ticket_id: id, tag_id: tag.id, amount: amount)
+  end
+
+  def ticket_tags
+    TicketTag.all(ticket_id: id) || []
+  end
+
+  private
+
+  def bootstrap
+    {'lost' => 'danger', 'action' => 'warning', 'won' => 'success'}
+  end
+
 end
+
+DataMapper.finalize

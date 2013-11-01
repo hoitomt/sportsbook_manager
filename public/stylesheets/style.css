@@ -17,14 +17,14 @@
   background-color: #CBFF82; }
 .results tr.ticket-header {
   font-weight: bold; }
-.results .tickets .result {
+.results .result {
   font-weight: bold; }
-.results .tickets .detail {
+.results .detail {
   font-size: 11px; }
-  .results .tickets .detail .heading {
+  .results .detail .heading {
     font-size: inherit;
     font-weight: bold; }
-  .results .tickets .detail .team {
+  .results .detail .team {
     text-align: right; }
 
 .row.update-link {
@@ -34,3 +34,6 @@
   padding-top: 19px;
   color: #777;
   border-top: 1px solid #e5e5e5; }
+
+.hide {
+  display: none; }

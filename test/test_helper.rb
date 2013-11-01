@@ -6,6 +6,10 @@ require 'nokogiri'
 
 module TestHelper
 
+  def clear_database
+    DataMapper.auto_migrate!
+  end
+
   def sportsbook_response
     doc = File.read(File.expand_path(File.dirname(__FILE__) + '/fixtures/sportsbook_response.html'))
     polish doc

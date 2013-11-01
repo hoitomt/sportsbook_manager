@@ -1,33 +1,16 @@
 .page-header
-  h1 History
+  h1 Tickets
 - unless @tickets.nil?
   .results
-    table.tickets width="100%"
-      tr
-        th Date
-        th Type
-        th Wagered
-        th To Win
-        th Outcome
-        th ID
-        td colspan="2"
+    .row
       - @tickets.each do |ticket|
-        tr.ticket-header class==ticket.outcome_class
-          td==ticket.display_date
-          td==ticket.type
-          td==currency(ticket.amount_wagered)
-          td==currency(ticket.amount_to_win)
-          td==ticket.outcome
-          td==ticket.sb_bet_id
-          td colspan="2"
-            - @tags.each do |tag|
-              a.tag href="/tickets/#{ticket._id}/add_tag" ==tag.name
-        tr class==ticket.outcome_class
-          td
-          td colspan="5"
-            == slim :'tickets/ticket_line_items', locals: {ticket_line_items: ticket.ticket_line_items}
-          td colspan="2"
-
-.row.update-link.col-md-12
-  a href="/tickets/update" Update Tickets (This will open a new Firefox Browser)
-
+        == slim :'tickets/ticket', locals: {ticket: ticket}
+#dialog-new-tag-form.modal style="height: 125px;"
+  == slim :'tags/new_tag_form'
+#dialog-delete-tag-confirm.modal style="height: 125px;"
+  h4 Are you sure you want to remove this tag?
+  ul.list-inline
+    li
+      a.confirm-delete.btn.btn-danger href="javascript:void(0)" Yes
+    li
+      a.cancel.btn.btn-primary href="javascript:void(0);" Cancel

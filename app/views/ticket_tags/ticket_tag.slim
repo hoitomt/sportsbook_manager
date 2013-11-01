@@ -1,0 +1,10 @@
+ul.list-inline
+  - ticket.ticket_tags.each do |ticket_tag|
+    li
+      a.remove-tag.btn.btn-success href="javascript:void(0)" data-href="/tickets/#{ticket.id}/remove_tag" data-ticket_tag_id="#{ticket_tag.id}" data-ticket_id="#{ticket_tag.ticket_id}"
+        span #{ticket_tag.tag.name}
+        span style="margin-left: 2px;" #{currency(ticket_tag.amount)}
+ul.list-inline
+  - unused_tags(ticket).each do |tag|
+    li
+      a.add-tag.btn.btn-danger href="javascript:void(0)" data-href="/tickets/#{ticket.id}/add_tag" data-name="#{tag.name}" data-tag_id="#{tag.id}" ==tag.name
