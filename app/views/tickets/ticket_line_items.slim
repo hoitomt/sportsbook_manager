@@ -1,11 +1,11 @@
 - if ticket_line_items
   - ticket_line_items.each do |line_item|
-    .heading
+    .row.heading
       .col-md-12.date
         '#{line_item.date_display} - #{line_item.line_item_spread_display}
-    .detail
+    .row.detail
       .col-md-8.team==line_item.away_team
       .col-md-4.score==line_item.away_score
-    .detail
+    .row.detail
       .col-md-8.team==line_item.home_team
       .col-md-4.score==line_item.home_score

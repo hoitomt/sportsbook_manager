@@ -19,3 +19,9 @@ group :development do
   gem 'shotgun'
   gem 'racksh'
 end
+
+group :development, :test do
+  gem 'rack-test'
+  gem 'capybara'
+  gem 'minitest-capybara'
+end

@@ -17,17 +17,13 @@ class Tickets
     end
 
     def persist_base_ticket(ticket)
-      ticket_attributes = ticket.attributes.dup
-      ticket_attributes.delete(:ticket_line_items)
-      Ticket.create(ticket_attributes)
+      ticket_hash = ticket.attributes
+      ticket_hash.delete(:ticket_line_items)
+      Ticket.add_or_update(ticket_hash)
     end
 
     def persist_ticket_line_item(ticket, ticket_line_item)
-      TicketLineItem.create(ticket_line_item.attributes.merge({ticket_id: ticket.id}))
-    end
-
-    def dao
-      MongoDao.new('tickets')
+      TicketLineItem.add_or_update(ticket_line_item.attributes.merge({ticket_id: ticket.id}))
     end
 
   end

@@ -1,10 +1,14 @@
 $LOAD_PATH << File.expand_path(File.dirname(__FILE__) + '/../lib')
+ENV['RACK_ENV'] = 'test'
 
 require 'minitest/autorun'
 require './app/sports_manager'
 require 'nokogiri'
+require 'capybara'
+require 'capybara/dsl'
 
 module TestHelper
+  include Capybara::DSL
 
   def clear_database
     DataMapper.auto_migrate!

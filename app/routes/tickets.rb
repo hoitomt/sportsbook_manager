@@ -5,7 +5,7 @@ end
 
 get '/tickets/update/?' do
   Tickets.save_tickets(SportsbookApi.get_tickets)
-  slim :'tickets/index', layout: :'layouts/application'
+  redirect '/tickets'
 end
 
 post '/tickets/:id/add_tag' do

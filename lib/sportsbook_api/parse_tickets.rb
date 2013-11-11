@@ -65,6 +65,7 @@ module SportsbookApi
 		def set_line_items(table)
 			[].tap do |a|
 				games(table).each do |game|
+					# p "Game #{game}"
 					g = create_line_item(game)
 					# puts "Game Hash #{g}"
 					a << g
@@ -115,12 +116,15 @@ module SportsbookApi
 		end
 
 		def teams(game)
-			teams = game.css('span')[0].try(:children)
+			game_row = game.css('tr').last
+			# p "Teams Game Row #{game_row}"
+			teams = game_row.css('span')[0].try(:children)
 			teams ||= ''
 			teams.to_s.split(line_separator)
 		end
 
 		def away_data(game)
+			# p "Away Data #{game}"
 			data = teams(game).first.gsub(/<(.*?)>/, '').strip
 			data ||= []
 			data.split(' ')
@@ -133,19 +137,23 @@ module SportsbookApi
 		end
 
 		def away_team(game)
-			away_data(game).first
+			team = away_data(game)
+			team.pop
+			team.join(' ')
 		end
 
 		def away_score(game)
-			away_data(game)[1]
+			away_data(game).last
 		end
 
 		def home_team(game)
-			home_data(game).first
+			team = home_data(game)
+			team.pop
+			team.join(' ')
 		end
 
 		def home_score(game)
-			home_data(game)[1]
+			home_data(game).last
 		end
 
 		def time_and_spread(game)

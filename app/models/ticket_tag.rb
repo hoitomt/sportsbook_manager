@@ -6,6 +6,9 @@ class TicketTag
   property :tag_id,     Integer
   property :amount,     Float
 
+  belongs_to :tag
+  belongs_to :ticket
+
   validates_uniqueness_of :ticket_id, scope: :tag_id,
     message: "This ticket has already been tagged for this person"
 
@@ -14,5 +17,3 @@ class TicketTag
   end
 
 end
-
-DataMapper.finalize

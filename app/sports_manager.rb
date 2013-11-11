@@ -1,5 +1,5 @@
 require 'bundler'
-Bundler.require(:default)
+Bundler.require
 
 require './lib/sportsbook_api/sportsbook_api'
 require 'slim'
@@ -18,9 +18,8 @@ end
 require_relative 'routes/pages'
 require_relative 'routes/tickets'
 require_relative 'routes/tags'
-require_relative 'models/tag'
-require_relative 'models/ticket_line_item'
-require_relative 'models/ticket'
-require_relative 'models/ticket_tag'
+require_relative 'routes/finances'
+require_relative 'models/init'
 require_relative 'services/tickets'
+require_relative 'services/finances'
 require_relative 'helpers/ticket_helper'

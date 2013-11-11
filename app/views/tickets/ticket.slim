@@ -3,7 +3,7 @@
     .panel-heading
       h3.panel-title
         = ticket.display_date
-        ' -
+        '&nbsp;-&nbsp;
         = ticket.type
     .panel-body.clearfix
       .row
@@ -23,3 +23,5 @@
       p.pull-right
         small
           =ticket.sb_bet_id
+          ' &nbsp;-&nbsp;
+          =ticket.id

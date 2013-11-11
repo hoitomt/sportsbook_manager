@@ -9,16 +9,26 @@ class Ticket
   property :amount_to_win,     Float
   property :outcome,           String
 
-  def self.add_or_update(t_hash)
-    Ticket.first(sb_bet_id: t_hash[:sb_bet_id]) || Ticket.new(t_hash)
+  has n, :ticket_line_items
+  has n, :ticket_tags
+  has n, :tags, :through => :ticket_tags
+
+  def self.add_or_update(t_hash={})
+    ticket = Ticket.first(sb_bet_id: t_hash[:sb_bet_id])
+    if ticket
+      ticket.update(t_hash)
+    else
+      ticket = Ticket.create(t_hash)
+    end
+    ticket
   end
 
   def display_date
-    wager_date.strftime("%_m/%e/%y")
+    wager_date.strftime("%_m/%-d/%y")
   end
 
   def outcome_class
-    return '' unless outcome
+    return 'default' if outcome.blank?
     bootstrap[outcome.downcase]
   end
 
@@ -37,9 +47,7 @@ class Ticket
   private
 
   def bootstrap
-    {'lost' => 'danger', 'action' => 'warning', 'won' => 'success'}
+    {'lost' => 'danger', 'action' => 'warning', 'won' => 'success', 'pending' => 'default'}
   end
 
 end
-
-DataMapper.finalize

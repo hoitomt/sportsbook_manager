@@ -12,8 +12,16 @@ class TicketLineItem
   property :line_item_date,    Time
   property :line_item_spread,  String
 
+  belongs_to :ticket
+
   def self.add_or_update(tle_hash)
-    existing_ticket_line_item(tle_hash) || TicketLineItem.new(tle_hash)
+    ticket_line_item = existing_ticket_line_item(tle_hash)
+    if ticket_line_item
+      ticket_line_item.update(tle_hash)
+    else
+      ticket_line_item = TicketLineItem.create(tle_hash)
+    end
+    ticket_line_item
   end
 
   def self.existing_ticket_line_item(tle_hash)
@@ -31,12 +39,10 @@ class TicketLineItem
   end
 
   def date_display
-    line_item_date.strftime("%_m/%e/%y")
+    line_item_date.strftime("%_m/%-d/%y")
   end
 
   def line_item_spread_display
     CGI.unescapeHTML(line_item_spread)
   end
 end
-
-DataMapper.finalize

@@ -4,6 +4,7 @@ class Tag
   property :id, Serial
   property :name,      String
   property :amount,    Float
-end
 
-DataMapper.finalize
+  has n, :ticket_tags
+  has n, :tickets, :through => :ticket_tags
+end

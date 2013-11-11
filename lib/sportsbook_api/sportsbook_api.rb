@@ -37,6 +37,10 @@ module SportsbookApi
       sportsbook.get_tickets(LAST_31_DAYS)
     end
 
+    def get_tickets_custom(custom_range)
+      sportsbook.get_tickets(custom_range)
+    end
+
     def get_tickets_this_month
       sportsbook.get_tickets(THIS_MONTH)
     end
@@ -83,10 +87,3 @@ module SportsbookApi
 
   end
 end
-
-# credentials = YAML.load_file(File.expand_path(File.dirname(__FILE__) + '/config/credentials.yml'))
-# SportsbookApi.configure do |config|
-#   config.username = credentials['username']
-#   config.password = credentials['password']
-# end
-# puts SportsbookApi.get_tickets_last_week
