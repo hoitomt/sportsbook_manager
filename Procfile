@@ -1,1 +1,1 @@
-web: bundle exec shotgun -p 3030
+web: bundle exec rackup -p $PORT

@@ -1,3 +1,4 @@
 /config/sportsbook_credentials.yml
 vendor/ruby
 .env
+Procfile.dev
