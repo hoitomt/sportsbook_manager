@@ -9,10 +9,9 @@ require_relative '../config/application'
 
 set :views, 'app/views'
 
-credentials = YAML.load_file(File.expand_path("config/sportsbook_credentials.yml"))
 SportsbookApi.configure do |config|
-  config.username = credentials['username']
-  config.password = credentials['password']
+  config.username = ENV['SB_USERNAME']
+  config.password = ENV['SB_PASSWORD']
 end
 
 require_relative 'routes/pages'
