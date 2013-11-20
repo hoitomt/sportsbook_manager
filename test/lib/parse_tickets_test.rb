@@ -3,7 +3,7 @@ require 'test_helper'
 describe SportsbookApi::ParseTickets do
   include TestHelper
 
-  let(:response){sportsbook_watir}
+  let(:response){load_fixture('watir')}
 
   describe 'parse tickets' do
     let(:tickets){SportsbookApi::ParseTickets.new(response).extract}
@@ -22,7 +22,7 @@ describe SportsbookApi::ParseTickets do
   end
 
   describe 'parse line items' do
-    let(:game){sportsbook_game}
+    let(:game){load_fixture('single_game')}
     let(:line_item){SportsbookApi::ParseTickets.new(response).create_line_item(game)}
     let(:line_item_date){Time.new(2013, 8, 29, 18, 05)}
 
@@ -36,5 +36,28 @@ describe SportsbookApi::ParseTickets do
     end
   end
 
-end
+  describe "parse different types of line items" do
+    let(:sportsbook){ SportsbookApi::ParseTickets.new({}) }
 
+    describe "parse teams" do
+      test_types =['pending_game', 'single_game', 'single_half']
+
+      test_types.each do |test_type|
+        it "should test #{test_type}" do
+          fixture = load_yml_fixture(test_type)
+          sb = sportsbook.create_line_item(fixture['fixture'])
+          compare_ticket(fixture['expected_result'], sb)
+        end
+      end
+    end
+  end
+
+  def compare_ticket(fixture, result)
+    fixture['away_team'].must_equal result[:away_team]
+    fixture['away_score'].must_equal result[:away_score]
+    fixture['home_team'].must_equal result[:home_team]
+    fixture['home_score'].must_equal result[:home_score]
+    fixture['line_item_spread'].must_equal result[:line_item_spread]
+  end
+
+end

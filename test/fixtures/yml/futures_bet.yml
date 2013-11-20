@@ -1,0 +1,21 @@
+fixture: <table><tbody>\n<tr>\n<td colspan=\"2\"><span>Odds to Win 2014 Super Bowl XLVIII - East Rutherford NJ</span></td> </tr>\n<tr>\n<td width=\"220\"> <span> Green Bay Packers <span class=\"futureScoreSpan\"></span> </span> </td> <td>\n<span> 02/02/14(20:00 ET)<br> +1200 </span> </td> </tr>\n</tbody></table>
+expected_result:
+  type: Futures Bet
+  away_team: Green Bay Packers
+  home_team:
+  away_score:
+  home_score:
+  line_item_date: 11/10/13 20:40
+  line_item_spread: Odds to Win 2014 Super Bowl XLVIII - East Rutherford NJ
+
+# <table>
+#   <tbody>\n
+#     <tr>\n
+#       <td colspan=\"2\"><span>Odds to Win 2014 Super Bowl XLVIII - East Rutherford NJ</span></td>
+#     </tr>\n
+#     <tr>\n
+#       <td width=\"220\"> <span> Green Bay Packers <span class=\"futureScoreSpan\"></span> </span> </td>
+#       <td>\n<span> 02/02/14(20:00 ET)<br> +1200 </span> </td>
+#     </tr>\n
+#   </tbody>
+# </table>

@@ -1,0 +1,9 @@
+fixture: <table><tbody>\n<tr>\n<td colspan=\"2\"><span>NFL 1st Half Lines</span></td> </tr>\n<tr>\n<td width=\"220\"> <span> Dallas Cowboys <span class=\"\">10</span> <br> New Orleans Saints 28 </span> </td> <td>\n<span> 11/10/13(20:40 ET)<br> New Orleans Saints -4 (-115) </span> </td> </tr>\n</tbody></table>
+expected_result:
+  type: Single Half
+  away_team: Dallas Cowboys
+  home_team: New Orleans Saints
+  away_score: '10'
+  home_score: '28'
+  line_item_date: 11/10/13 20:40
+  line_item_spread: New Orleans Saints -4 (-115)

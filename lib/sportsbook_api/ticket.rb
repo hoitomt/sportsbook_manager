@@ -3,10 +3,10 @@ require 'json'
 
 module SportsbookApi
   class Ticket
-    include Virtus
+    include Virtus.model
 
     class TicketLineItem
-      include Virtus
+      include Virtus.model
 
       attribute :away_team,         String
       attribute :away_score,        Integer

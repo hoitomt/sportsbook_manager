@@ -1,0 +1,9 @@
+fixture: <table><tbody><tr>\n<td width=\"220\"> <span> Chiefs(KansasCity) <span class=\"\"></span> <br> Broncos(Denver) </span> </td> <td>\n<span> 11/17/13(20:35 ET)<br> Chiefs(KansasCity) +7.5 (-115) </span> </td> </tr></tbody></table>
+expected_result:
+  type: Pending Game
+  away_team: Chiefs(KansasCity)
+  home_team: Broncos(Denver)
+  away_score:
+  home_score:
+  line_item_date: 11/17/13 20:35
+  line_item_spread: Chiefs(KansasCity) +7.5 (-115)

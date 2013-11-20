@@ -3,7 +3,7 @@ require 'test_helper'
 describe Tickets do
   include TestHelper
 
-  let(:response){sportsbook_watir}
+  let(:response){load_fixture('watir')}
   let(:sb_tickets){SportsbookApi::ParseTickets.new(response).extract}
   let(:sb_first_ticket){sb_tickets.first}
 

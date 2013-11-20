@@ -20,6 +20,7 @@ class TicketLineItem
       ticket_line_item.update(tle_hash)
     else
       ticket_line_item = TicketLineItem.create(tle_hash)
+      ticket_line_item.errors.each {|e| puts e}
     end
     ticket_line_item
   end

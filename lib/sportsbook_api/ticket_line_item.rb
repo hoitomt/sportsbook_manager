@@ -2,7 +2,7 @@ require 'virtus'
 
 module SportsbookApi
   class TicketLineItem
-    include Virtus
+    include Virtus.model
 
     attribute :away_team,         String
     attribute :away_score,        Integer

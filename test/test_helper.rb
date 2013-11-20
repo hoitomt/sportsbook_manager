@@ -14,19 +14,17 @@ module TestHelper
     DataMapper.auto_migrate!
   end
 
-  def sportsbook_response
-    doc = File.read(File.expand_path(File.dirname(__FILE__) + '/fixtures/sportsbook_response.html'))
+  def load_fixture(fixture_name)
+    doc = File.read(File.expand_path(File.dirname(__FILE__) + "/fixtures/#{fixture_name}.html"))
     polish doc
   end
 
-  def sportsbook_game
-    doc = File.read(File.expand_path(File.dirname(__FILE__) + '/fixtures/sportsbook_game.html'))
-    polish doc
-  end
-
-  def sportsbook_watir
-    doc = File.read(File.expand_path(File.dirname(__FILE__) + '/fixtures/watir_fixture.html'))
-    polish doc
+  def load_yml_fixture(fixture_name)
+    path = File.expand_path(File.dirname(__FILE__) + "/fixtures/yml/#{fixture_name}.yml")
+    test_fixture = YAML.load_file(path)
+    # p "Test Fixture #{test_fixture}"
+    test_fixture['fixture'] = polish test_fixture['fixture']
+    test_fixture
   end
 
   def polish(doc)

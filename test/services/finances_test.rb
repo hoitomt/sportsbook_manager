@@ -11,30 +11,18 @@ describe Finances do
 
   let(:mock_finances){[won_finance, lost_finance]}
 
-  # describe "all" do
-  #   before do
-  #     Finances.stub(:finances,[won_finance, lost_finance, bart_won_finance, bart_lost_finance])
-  #   end
-
-  #   it "should return a hash of 2" do
-  #     Finances.all.must_be_instance_of Hash
-  #     Finances.all.length.must_equal 2
-  #   end
-
-  #   it "should return a struct" do
-  #     Finances.all.length.must_equal 2
-  #   end
-  # end
-
-
   describe "Calculated Amount" do
 
-    it "should return an amount for a won wager" do
+    it "should return the correct won amount" do
       Finances.amount_won(mock_finances).must_equal 11.0
     end
 
-    it "should return zero for a lost wager" do
-      Finances.amount_won(mock_finances).must_equal 0.0
+    it "should return the correct wagered amount" do
+      Finances.amount_wagered(mock_finances).must_equal 10.0
+    end
+
+    it "should return the correct wagered amount" do
+      Finances.amount_pending(mock_finances).must_equal 0.0
     end
   end
 end

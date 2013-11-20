@@ -34,7 +34,9 @@ module SportsbookApi
     end
 
     def get_tickets
+      # sportsbook.get_tickets(LAST_DAY)
       sportsbook.get_tickets(LAST_31_DAYS)
+      # sportsbook.get_tickets(PREVIOUS_MONTH_4)
     end
 
     def get_tickets_custom(custom_range)

@@ -2,7 +2,6 @@ source 'https://rubygems.org'
 
 gem 'sinatra', '~> 1.4.3'
 gem 'slim'
-# gem 'sportsbook_api', path: '/Users/hoitomt/Code/gems/sportsbook_api'
 gem 'virtus'
 gem 'data_mapper'
 gem 'pg'
@@ -13,6 +12,7 @@ gem 'i18n'
 gem 'active_support'
 gem 'watir'
 gem 'nokogiri'
+gem 'pry'
 
 group :development do
   gem 'foreman'

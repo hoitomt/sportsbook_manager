@@ -18,7 +18,7 @@ end
 require_relative 'routes/pages'
 require_relative 'routes/tickets'
 require_relative 'routes/tags'
-require_relative 'routes/finances'
+require_relative 'routes/summary'
 require_relative 'models/init'
 require_relative 'services/tickets'
 require_relative 'services/finances'
