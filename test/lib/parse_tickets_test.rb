@@ -40,7 +40,7 @@ describe SportsbookApi::ParseTickets do
     let(:sportsbook){ SportsbookApi::ParseTickets.new({}) }
 
     describe "parse teams" do
-      test_types =['pending_game', 'single_game', 'single_half']
+      test_types =['pending_game', 'single_game', 'single_half', 'pending_single_half']
 
       test_types.each do |test_type|
         it "should test #{test_type}" do

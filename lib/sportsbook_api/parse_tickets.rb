@@ -138,24 +138,24 @@ module SportsbookApi
 
 		def away_team(game)
 			team = away_data(game)
-			team.pop if team.length > 1
+			team.pop if team.last =~ /^\d+$/
 			team.join(' ')
 		end
 
 		def away_score(game)
 			data = away_data(game)
-			data.length > 1 ? data.last : nil
+			data.last =~ /^\d+$/ ? data.last : nil
 		end
 
 		def home_team(game)
 			team = home_data(game)
-			team.pop if team.length > 1
+			team.pop if team.last =~ /^\d+$/
 			team.join(' ')
 		end
 
 		def home_score(game)
 			data = home_data(game)
-			data.length > 1 ? data.last : nil
+			data.last =~ /^\d+$/ ? data.last : nil
 		end
 
 		def time_and_spread(game)

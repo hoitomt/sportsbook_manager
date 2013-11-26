@@ -1,0 +1,9 @@
+fixture: <table><tbody>\n<tr>\n<td colspan=\"2\"><span>NFL 2nd Half Lines (OT included)</span></td> </tr>\n<tr>\n<td width=\"220\"> <span> San Francisco 49ers <span class=\"\"></span> <br> Washington Redskins </span> </td> <td>\n<span> 11/25/13(23:10 ET)<br> San Francisco 49ers -3 (-110) </span> </td> </tr>\n</tbody></table>
+expected_result:
+  type: Pending Single Half
+  away_team: San Francisco 49ers
+  home_team: Washington Redskins
+  away_score:
+  home_score:
+  line_item_date: 11/25/13 23:10
+  line_item_spread: San Francisco 49ers -3 (-110)
