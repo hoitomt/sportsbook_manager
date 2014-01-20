@@ -10,8 +10,19 @@ end
 
 get '/tags/?' do
   @tags = Tag.all
-  p "Tags #{@tags}"
   slim :'tags/index', layout: :'layouts/application'
+end
+
+get '/tags/:id/cash/new' do
+  @tag = Tag.get(params[:id])
+  @cash = Cash.new
+  slim :'cash/new', layout: :'layouts/application'
+end
+
+post '/tags/:id/cash' do
+  p "Params #{params}"
+  @cash = Cash.create(tag_id: params[:id], amount: params[:cash][:amount])
+  redirect '/tags'
 end
 
 post '/tags/:id' do

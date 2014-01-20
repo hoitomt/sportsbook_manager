@@ -1,4 +1,4 @@
 get '/' do
-  p "Environment #{settings.environment}"
-  slim :'pages/home', layout: :'layouts/application'
+  @results = Finances.all
+  slim :'summary/index', layout: :'layouts/application'
 end

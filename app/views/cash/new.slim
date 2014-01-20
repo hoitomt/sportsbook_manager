@@ -1,0 +1,11 @@
+.page-header
+  h1 New Transaction for #{@tag.name}
+.row
+  .col-md-12
+    form method="POST" action="/tags/#{@tag.id}/cash"
+      .row
+        label.col-md-1 for="title" Amount:
+        input#title.col-md-2 type="text" name="cash[amount]" value="#{@cash.amount}"
+      .row
+        br
+        input.col-md-2.col-md-offset-1 type="submit" value="Save"

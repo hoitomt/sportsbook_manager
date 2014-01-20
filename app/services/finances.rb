@@ -3,15 +3,24 @@ class Finances
     Struct.new("Finance", :id, :amount_wagered, :amount_won, :amount_pending, :bottom_line)
 
     def all
+      p "Wager #{all_wager}"
+      all_wager
+    end
+
+    def all_wager
       {}.tap do |h|
         tagged_finances.each do |k, fin|
           amount_wagered = amount_wagered(fin)
           amount_won = amount_won(fin)
           amount_pending = amount_pending(fin)
-          bottom_line = bottom_line(amount_wagered, amount_won, amount_pending)
+          cash = Tag.get(fin.first.id).total_cash
+          bottom_line = bottom_line(amount_wagered, amount_won, cash)
           h[k] = Struct::Finance.new(fin.first.id, amount_wagered, amount_won, amount_pending, bottom_line)
         end
       end
+    end
+
+    def all_cash
     end
 
     def tagged_finances
@@ -50,8 +59,8 @@ class Finances
       sum_array finances.map{|finance| calculated_amount_pending(finance)}
     end
 
-    def bottom_line(wagered, won, pending)
-      won - (wagered + pending)
+    def bottom_line(wagered, won, cash)
+      won - wagered + cash
     end
 
     def sum_array(arr=[])

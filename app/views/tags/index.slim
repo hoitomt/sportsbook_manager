@@ -6,8 +6,12 @@
       .col-md-12
         .col-md-2
           a href="/tags/edit/#{tag.id}" ==tag.name
-        .col-md-2
+        .col-md-1
+          p = currency(tag.total_cash)
+        .col-md-1
           == slim :'tags/delete_tag', locals: {tag: tag}
+        .col-md-2
+          a href="/tags/#{tag.id}/cash/new" Transact Cash
 
 .row style="margin-top: 20px;"
   .col-md-12
